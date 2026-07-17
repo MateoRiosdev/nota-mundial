@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "title": "세계 성적 평균 계산기",
+    "description": "전 세계 모든 국가의 성적 평균을 계산하세요."
+  },
+  "header": {
+    "appName": "세계 성적",
+    "tagline": "글로벌 성적 평균 계산기"
+  },
+  "theme": {
+    "toggleLight": "라이트 모드",
+    "toggleDark": "다크 모드"
+  },
+  "language": {
+    "selectorLabel": "언어 선택",
+    "changeLanguage": "언어 변경",
+    "comingSoon": "출시 예정"
+  },
+  "hero": {
+    "title": "전 세계에서 성적을 계산하세요",
+    "subtitle": "국가를 검색하고 대륙을 선택하여 성적 척도에 맞게 평가를 조정하세요."
+  },
+  "countrySelector": {
+    "title": "국가 선택",
+    "searchPlaceholder": "국가 검색...",
+    "continentAll": "모든 대륙",
+    "continents": {
+      "Africa": "아프리카",
+      "Americas": "아메리카",
+      "Asia": "아시아",
+      "Europe": "유럽",
+      "Oceania": "오세아니아"
+    },
+    "loading": "국가 로딩 중...",
+    "error": "국가 목록을 불러올 수 없습니다. 다시 시도하세요.",
+    "scaleLabel": "척도",
+    "selected": "선택된 국가"
+  },
+  "calculator": {
+    "modeCustom": "현재 평균",
+    "modeEnglish": "영어 레벨 평균",
+    "evaluationsHeader": "평가",
+    "percentageHeader": "백분율",
+    "gradeHeader": "성적",
+    "addEvaluation": "평가 추가",
+    "removeEvaluation": "삭제",
+    "totalPercentage": "총 백분율",
+    "percentageWarning": "합계는 100%여야 합니다.",
+    "calculateButton": "최종 성적 계산",
+    "saveButton": "성적 저장",
+    "newCalcButton": "새 계산",
+    "savedBadge": "저장됨",
+    "countryGradeTitle": "평균 성적",
+    "noCountrySelected": "국가가 선택되지 않았습니다",
+    "englishEvaluations": {
+      "pa1": "Proficiency achievement 1",
+      "pa2": "Proficiency achievement 2",
+      "pa3": "Proficiency achievement 3",
+      "pa4": "Proficiency achievement 4",
+      "pa5": "Proficiency achievement 5",
+      "pa6": "Proficiency achievement 6",
+      "final": "Final Evaluation"
+    }
+  },
+  "resultModal": {
+    "title": "최종 성적",
+    "yourGrade": "최종 성적은",
+    "onScale": "척도",
+    "internalScore": "내부 점수 (0-100)",
+    "close": "닫기",
+    "saveNow": "이 성적 저장"
+  },
+  "savedGrades": {
+    "title": "저장된 성적",
+    "empty": "저장된 성적이 없습니다.",
+    "load": "불러오기",
+    "delete": "삭제",
+    "clearAll": "모두 삭제",
+    "mode_custom": "현재 평균",
+    "mode_english": "영어 레벨",
+    "noCountry": "국가 없음"
+  },
+  "countries": {
+    "MX": {
+      "name": "멕시코",
+      "desc": ""
+    },
+    "ES": {
+      "name": "스페인",
+      "desc": ""
+    },
+    "AR": {
+      "name": "아르헨티나",
+      "desc": ""
+    },
+    "CO": {
+      "name": "콜롬비아",
+      "desc": ""
+    },
+    "PE": {
+      "name": "페루",
+      "desc": ""
+    },
+    "CL": {
+      "name": "칠레",
+      "desc": ""
+    },
+    "VE": {
+      "name": "베네수엘라",
+      "desc": ""
+    },
+    "EC": {
+      "name": "에콰도르",
+      "desc": ""
+    },
+    "CR": {
+      "name": "코스타리카",
+      "desc": ""
+    },
+    "GT": {
+      "name": "과테말라",
+      "desc": ""
+    }
+  },
+  "footer": {
+    "rights": "모든 권리 보유.",
+    "author": "MateoRiosdev"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "title": "Calcolatore di Medie Voti Mondiale",
+    "description": "Calcola la tua media voti per qualsiasi paese del mondo."
+  },
+  "header": {
+    "appName": "Voto Mondiale",
+    "tagline": "Calcolatore di Media Globale"
+  },
+  "theme": {
+    "toggleLight": "Modalita chiara",
+    "toggleDark": "Modalita scura"
+  },
+  "language": {
+    "selectorLabel": "Seleziona lingua",
+    "changeLanguage": "Cambia lingua",
+    "comingSoon": "Prossimamente"
+  },
+  "hero": {
+    "title": "Calcola i tuoi voti in tutto il mondo",
+    "subtitle": "Cerca il tuo paese, scegli il continente e adatta le valutazioni alla tua scala."
+  },
+  "countrySelector": {
+    "title": "Seleziona il tuo paese",
+    "searchPlaceholder": "Cerca paese...",
+    "continentAll": "Tutti i continenti",
+    "continents": {
+      "Africa": "Africa",
+      "Americas": "Americhe",
+      "Asia": "Asia",
+      "Europe": "Europa",
+      "Oceania": "Oceania"
+    },
+    "loading": "Caricamento paesi...",
+    "error": "Impossibile caricare i paesi. Riprova.",
+    "scaleLabel": "Scala",
+    "selected": "Paese selezionato"
+  },
+  "calculator": {
+    "modeCustom": "Media Attuale",
+    "modeEnglish": "Media ENGLISH LEVEL",
+    "evaluationsHeader": "Valutazioni",
+    "percentageHeader": "Percentuale",
+    "gradeHeader": "Voto",
+    "addEvaluation": "Aggiungi valutazione",
+    "removeEvaluation": "Rimuovi",
+    "totalPercentage": "Percentuale totale",
+    "percentageWarning": "Il totale deve essere uguale al 100%.",
+    "calculateButton": "Calcola Voto Finale",
+    "saveButton": "Salva Voto",
+    "newCalcButton": "Nuovo Calcolo",
+    "savedBadge": "Salvati",
+    "countryGradeTitle": "Voto Medio in",
+    "noCountrySelected": "Nessun paese selezionato",
+    "englishEvaluations": {
+      "pa1": "Proficiency achievement 1",
+      "pa2": "Proficiency achievement 2",
+      "pa3": "Proficiency achievement 3",
+      "pa4": "Proficiency achievement 4",
+      "pa5": "Proficiency achievement 5",
+      "pa6": "Proficiency achievement 6",
+      "final": "Final Evaluation"
+    }
+  },
+  "resultModal": {
+    "title": "Voto Finale",
+    "yourGrade": "Il tuo voto finale e",
+    "onScale": "sulla scala",
+    "internalScore": "Punteggio interno (0-100)",
+    "close": "Chiudi",
+    "saveNow": "Salva questo voto"
+  },
+  "savedGrades": {
+    "title": "Voti Salvati",
+    "empty": "Nessun voto salvato.",
+    "load": "Carica",
+    "delete": "Elimina",
+    "clearAll": "Cancella tutto",
+    "mode_custom": "Media Attuale",
+    "mode_english": "English Level",
+    "noCountry": "Nessun paese"
+  },
+  "countries": {
+    "MX": {
+      "name": "Messico",
+      "desc": ""
+    },
+    "ES": {
+      "name": "Spagna",
+      "desc": ""
+    },
+    "AR": {
+      "name": "Argentina",
+      "desc": ""
+    },
+    "CO": {
+      "name": "Colombia",
+      "desc": ""
+    },
+    "PE": {
+      "name": "Peru",
+      "desc": ""
+    },
+    "CL": {
+      "name": "Cile",
+      "desc": ""
+    },
+    "VE": {
+      "name": "Venezuela",
+      "desc": ""
+    },
+    "EC": {
+      "name": "Ecuador",
+      "desc": ""
+    },
+    "CR": {
+      "name": "Costa Rica",
+      "desc": ""
+    },
+    "GT": {
+      "name": "Guatemala",
+      "desc": ""
+    }
+  },
+  "footer": {
+    "rights": "Tutti i diritti riservati.",
+    "author": "MateoRiosdev"
+  }
+}

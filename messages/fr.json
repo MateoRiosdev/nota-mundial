@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "title": "Calculateur de Moyenne de Notes Mondial",
+    "description": "Calculez votre moyenne pour n'importe quel pays du monde."
+  },
+  "header": {
+    "appName": "Note Mondiale",
+    "tagline": "Calculateur de Moyenne Global"
+  },
+  "theme": {
+    "toggleLight": "Mode clair",
+    "toggleDark": "Mode sombre"
+  },
+  "language": {
+    "selectorLabel": "Choisir la langue",
+    "changeLanguage": "Changer de langue",
+    "comingSoon": "Bientot"
+  },
+  "hero": {
+    "title": "Calculez vos notes dans le monde entier",
+    "subtitle": "Recherchez votre pays, choisissez le continent et adaptez les evaluations."
+  },
+  "countrySelector": {
+    "title": "Selectionnez votre pays",
+    "searchPlaceholder": "Rechercher un pays...",
+    "continentAll": "Tous les continents",
+    "continents": {
+      "Africa": "Afrique",
+      "Americas": "Ameriques",
+      "Asia": "Asie",
+      "Europe": "Europe",
+      "Oceania": "Oceanie"
+    },
+    "loading": "Chargement des pays...",
+    "error": "Impossible de charger les pays. Reessayez.",
+    "scaleLabel": "Echelle",
+    "selected": "Pays selectionne"
+  },
+  "calculator": {
+    "modeCustom": "Moyenne Actuelle",
+    "modeEnglish": "Moyenne ENGLISH LEVEL",
+    "evaluationsHeader": "Evaluations",
+    "percentageHeader": "Pourcentage",
+    "gradeHeader": "Note",
+    "addEvaluation": "Ajouter une evaluation",
+    "removeEvaluation": "Supprimer",
+    "totalPercentage": "Pourcentage total",
+    "percentageWarning": "Le total doit etre egal a 100%.",
+    "calculateButton": "Calculer la Note Finale",
+    "saveButton": "Sauvegarder",
+    "newCalcButton": "Nouveau Calcul",
+    "savedBadge": "Sauvegardees",
+    "countryGradeTitle": "Note Moyenne en",
+    "noCountrySelected": "Aucun pays selectionne",
+    "englishEvaluations": {
+      "pa1": "Proficiency achievement 1",
+      "pa2": "Proficiency achievement 2",
+      "pa3": "Proficiency achievement 3",
+      "pa4": "Proficiency achievement 4",
+      "pa5": "Proficiency achievement 5",
+      "pa6": "Proficiency achievement 6",
+      "final": "Final Evaluation"
+    }
+  },
+  "resultModal": {
+    "title": "Note Finale",
+    "yourGrade": "Votre note finale est",
+    "onScale": "sur l'echelle",
+    "internalScore": "Score interne (0-100)",
+    "close": "Fermer",
+    "saveNow": "Sauvegarder cette note"
+  },
+  "savedGrades": {
+    "title": "Notes Sauvegardees",
+    "empty": "Aucune note sauvegardee.",
+    "load": "Charger",
+    "delete": "Supprimer",
+    "clearAll": "Tout effacer",
+    "mode_custom": "Moyenne Actuelle",
+    "mode_english": "English Level",
+    "noCountry": "Sans pays"
+  },
+  "countries": {
+    "MX": {
+      "name": "Mexique",
+      "desc": ""
+    },
+    "ES": {
+      "name": "Espagne",
+      "desc": ""
+    },
+    "AR": {
+      "name": "Argentine",
+      "desc": ""
+    },
+    "CO": {
+      "name": "Colombie",
+      "desc": ""
+    },
+    "PE": {
+      "name": "Perou",
+      "desc": ""
+    },
+    "CL": {
+      "name": "Chili",
+      "desc": ""
+    },
+    "VE": {
+      "name": "Venezuela",
+      "desc": ""
+    },
+    "EC": {
+      "name": "Equateur",
+      "desc": ""
+    },
+    "CR": {
+      "name": "Costa Rica",
+      "desc": ""
+    },
+    "GT": {
+      "name": "Guatemala",
+      "desc": ""
+    }
+  },
+  "footer": {
+    "rights": "Tous droits reserves.",
+    "author": "MateoRiosdev"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "title": "全球成绩平均计算器",
+    "description": "计算世界上任何国家的成绩平均值。"
+  },
+  "header": {
+    "appName": "世界成绩",
+    "tagline": "全球成绩平均计算器"
+  },
+  "theme": {
+    "toggleLight": "浅色模式",
+    "toggleDark": "深色模式"
+  },
+  "language": {
+    "selectorLabel": "选择语言",
+    "changeLanguage": "更改语言",
+    "comingSoon": "即将推出"
+  },
+  "hero": {
+    "title": "在全球计算您的成绩",
+    "subtitle": "搜索您的国家，选择洲际，并根据您的评分标准调整评估。"
+  },
+  "countrySelector": {
+    "title": "选择您的国家",
+    "searchPlaceholder": "搜索国家...",
+    "continentAll": "所有大洲",
+    "continents": {
+      "Africa": "非洲",
+      "Americas": "美洲",
+      "Asia": "亚洲",
+      "Europe": "欧洲",
+      "Oceania": "大洋洲"
+    },
+    "loading": "正在加载国家...",
+    "error": "无法加载国家列表。请重试。",
+    "scaleLabel": "量表",
+    "selected": "已选国家"
+  },
+  "calculator": {
+    "modeCustom": "当前平均分",
+    "modeEnglish": "英语水平平均分",
+    "evaluationsHeader": "评估",
+    "percentageHeader": "百分比",
+    "gradeHeader": "成绩",
+    "addEvaluation": "添加评估",
+    "removeEvaluation": "删除",
+    "totalPercentage": "总百分比",
+    "percentageWarning": "总计必须等于100%。",
+    "calculateButton": "计算最终成绩",
+    "saveButton": "保存成绩",
+    "newCalcButton": "新计算",
+    "savedBadge": "已保存",
+    "countryGradeTitle": "平均成绩",
+    "noCountrySelected": "未选择国家",
+    "englishEvaluations": {
+      "pa1": "Proficiency achievement 1",
+      "pa2": "Proficiency achievement 2",
+      "pa3": "Proficiency achievement 3",
+      "pa4": "Proficiency achievement 4",
+      "pa5": "Proficiency achievement 5",
+      "pa6": "Proficiency achievement 6",
+      "final": "Final Evaluation"
+    }
+  },
+  "resultModal": {
+    "title": "最终成绩",
+    "yourGrade": "您的最终成绩是",
+    "onScale": "按比例",
+    "internalScore": "内部分数 (0-100)",
+    "close": "关闭",
+    "saveNow": "保存此成绩"
+  },
+  "savedGrades": {
+    "title": "已保存的成绩",
+    "empty": "没有已保存的成绩。",
+    "load": "加载",
+    "delete": "删除",
+    "clearAll": "全部清除",
+    "mode_custom": "当前平均分",
+    "mode_english": "英语水平",
+    "noCountry": "无国家"
+  },
+  "countries": {
+    "MX": {
+      "name": "墨西哥",
+      "desc": ""
+    },
+    "ES": {
+      "name": "西班牙",
+      "desc": ""
+    },
+    "AR": {
+      "name": "阿根廷",
+      "desc": ""
+    },
+    "CO": {
+      "name": "哥伦比亚",
+      "desc": ""
+    },
+    "PE": {
+      "name": "秘鲁",
+      "desc": ""
+    },
+    "CL": {
+      "name": "智利",
+      "desc": ""
+    },
+    "VE": {
+      "name": "委内瑞拉",
+      "desc": ""
+    },
+    "EC": {
+      "name": "厄瓜多尔",
+      "desc": ""
+    },
+    "CR": {
+      "name": "哥斯达黎加",
+      "desc": ""
+    },
+    "GT": {
+      "name": "危地马拉",
+      "desc": ""
+    }
+  },
+  "footer": {
+    "rights": "版权所有。",
+    "author": "MateoRiosdev"
+  }
+}

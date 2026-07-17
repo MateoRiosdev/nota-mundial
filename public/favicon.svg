@@ -1,0 +1,33 @@
+// Dentro de generateMetadata, agrega icons:
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'metadata' });
+
+  const languages = Object.fromEntries(
+    locales.map((l) => [l, `https://www.notamundial.com/${l}`])
+  );
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    // *** AGREGA ESTO ***
+    icons: {
+      icon: '/favicon.svg',
+      shortcut: '/favicon.svg',
+      apple: '/favicon.svg',
+    },
+    // *** FIN ***
+    metadataBase: new URL('https://www.notamundial.com'),
+    alternates: {
+      canonical: `https://www.notamundial.com/${locale}`,
+      languages: { ...languages, 'x-default': 'https://www.notamundial.com/es' }
+    },
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      locale,
+      url: `https://www.notamundial.com/${locale}`,
+      type: 'website'
+    }
+  };
+}

@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "title": "Nota Mundial - Calcula tus notas a nivel mundial",
+    "description": "Calcula tu promedio de notas para cualquier país del mundo: media ponderada en España, promedio ponderado en Latinoamérica y más."
+  },
+  "header": {
+    "appName": "Nota Mundial",
+    "tagline": "Calculadora de Promedio Global"
+  },
+  "theme": {
+    "toggleLight": "Cambiar a modo claro",
+    "toggleDark": "Cambiar a modo oscuro"
+  },
+  "language": {
+    "selectorLabel": "Seleccionar idioma",
+    "changeLanguage": "Cambiar idioma",
+    "comingSoon": "Próximamente"
+  },
+  "hero": {
+    "title": "Calcula tus notas a nivel mundial",
+    "subtitle": "Busca tu país, elige el continente y adapta las evaluaciones y porcentajes a tu escala de calificación (0-100 internamente, convertido a tu escala local)."
+  },
+  "countrySelector": {
+    "title": "Selecciona tu país",
+    "searchPlaceholder": "Buscar país...",
+    "continentAll": "Todos los continentes",
+    "continents": {
+      "Africa": "África",
+      "Americas": "América",
+      "Asia": "Asia",
+      "Europe": "Europa",
+      "Oceania": "Oceanía"
+    },
+    "loading": "Cargando países...",
+    "error": "No se pudo cargar la lista de países. Intenta de nuevo.",
+    "scaleLabel": "Escala",
+    "selected": "País seleccionado"
+  },
+  "calculator": {
+    "countryGradeTitle": "Nota Promedio en",
+"noCountrySelected": "Sin país seleccionado",
+    "modeCustom": "Promedio Actual",
+    "modeEnglish": "Promedio ENGLISH LEVEL",
+    "evaluationsHeader": "Evaluaciones",
+    "percentageHeader": "Porcentaje",
+    "gradeHeader": "Nota",
+    "addEvaluation": "Agregar evaluación",
+    "removeEvaluation": "Eliminar",
+    "totalPercentage": "Porcentaje total",
+    "percentageWarning": "El porcentaje total debe sumar 100%.",
+    "calculateButton": "Calcular Calificación Final",
+    "saveButton": "Guardar Calificación",
+    "newCalcButton": "Nuevo Cálculo",
+    "savedBadge": "Guardadas",
+    "englishEvaluations": {
+      "pa1": "Proficiency achievement 1",
+      "pa2": "Proficiency achievement 2",
+      "pa3": "Proficiency achievement 3",
+      "pa4": "Proficiency achievement 4",
+      "pa5": "Proficiency achievement 5",
+      "pa6": "Proficiency achievement 6",
+      "final": "Final Evaluation"
+    }
+  },
+  "resultModal": {
+    "title": "Calificación Final",
+    "yourGrade": "Tu nota final es",
+    "onScale": "en escala",
+    "internalScore": "Puntaje interno (0-100)",
+    "close": "Cerrar",
+    "saveNow": "Guardar esta calificación"
+  },
+    "savedGrades": {
+    "title": "Calificaciones Guardadas",
+    "empty": "Aún no hay calificaciones guardadas.",
+    "load": "Cargar",
+    "delete": "Eliminar",
+    "clearAll": "Limpiar todo",
+    "mode_custom": "Promedio Actual",
+    "mode_english": "English Level",
+    "noCountry": "Sin país"
+  },
+  "countries": {
+    "MX": { "name": "Notas en México", "desc": "Calificaciones en porcentaje (0-100%)" },
+    "ES": { "name": "Notas en España", "desc": "Calcula tu nota: bachillerato, ESO, universidad" },
+    "AR": { "name": "Notas en Argentina", "desc": "Promedio UBA, CBC, promoción directa y secundaria" },
+    "CO": { "name": "Notas en Colombia", "desc": "PAPA, promedio ponderado (0-5)" },
+    "PE": { "name": "Notas en Perú", "desc": "UPAO, San Marcos – escala vigesimal" },
+    "CL": { "name": "Notas en Chile", "desc": "Mi promedio, notas con porcentaje y NEM" },
+    "VE": { "name": "Notas en Venezuela", "desc": "UCV, LUZ, OPSU (0-20), USB (1-5)" },
+    "EC": { "name": "Notas en Ecuador", "desc": "ESPOL, UCE, Registro Nacional (0-10)" },
+    "CR": { "name": "Notas en Costa Rica", "desc": "UCR, TEC – nota de examen (0-10, 0-100)" },
+    "GT": { "name": "Notas en Guatemala", "desc": "USAC, Landívar – Zona y examen final (0-100)" }
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "author": "MateoRiosdev"
+  }
+}

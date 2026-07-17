@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "title": "Global Grades - Calculate Your Grades on a Global Scale",
+    "description": "Calculate your grade average for any country in the world: weighted average in Spain, weighted GPA in Latin America and more."
+  },
+  "header": {
+    "appName": "World Grade",
+    "tagline": "Global Grade Average Calculator"
+  },
+  "theme": {
+    "toggleLight": "Switch to light mode",
+    "toggleDark": "Switch to dark mode"
+  },
+  "language": {
+    "selectorLabel": "Select language",
+    "changeLanguage": "Change language",
+    "comingSoon": "Coming soon"
+  },
+  "hero": {
+    "title": "Calculate your grades worldwide",
+    "subtitle": "Search your country, pick a continent and adapt evaluations and percentages to your grading scale (internally 0-100, converted to your local scale)."
+  },
+  "countrySelector": {
+    "title": "Select your country",
+    "searchPlaceholder": "Search country...",
+    "continentAll": "All continents",
+    "continents": {
+      "Africa": "Africa",
+      "Americas": "Americas",
+      "Asia": "Asia",
+      "Europe": "Europe",
+      "Oceania": "Oceania"
+    },
+    "loading": "Loading countries...",
+    "error": "Could not load the country list. Please try again.",
+    "scaleLabel": "Scale",
+    "selected": "Selected country"
+  },
+  "calculator": {
+    "countryGradeTitle": "Average Grade in",
+"noCountrySelected": "No country selected",
+    "modeCustom": "Current Average",
+    "modeEnglish": "English Level Average",
+    "evaluationsHeader": "Evaluations",
+    "percentageHeader": "Percentage",
+    "gradeHeader": "Grade",
+    "addEvaluation": "Add evaluation",
+    "removeEvaluation": "Remove",
+    "totalPercentage": "Total percentage",
+    "percentageWarning": "The total percentage must add up to 100%.",
+    "calculateButton": "Calculate Final Grade",
+    "saveButton": "Save Grade",
+    "newCalcButton": "New Calculation",
+    "savedBadge": "Saved",
+    "englishEvaluations": {
+      "pa1": "Proficiency achievement 1",
+      "pa2": "Proficiency achievement 2",
+      "pa3": "Proficiency achievement 3",
+      "pa4": "Proficiency achievement 4",
+      "pa5": "Proficiency achievement 5",
+      "pa6": "Proficiency achievement 6",
+      "final": "Final Evaluation"
+    }
+  },
+    "savedGrades": {
+    "title": "Calificaciones Guardadas",
+    "empty": "Aún no hay calificaciones guardadas.",
+    "load": "Cargar",
+    "delete": "Eliminar",
+    "clearAll": "Limpiar todo",
+    "mode_custom": "Promedio Actual",
+    "mode_english": "English Level",
+    "noCountry": "Sin país"
+  },
+  "resultModal": {
+    "title": "Final Grade",
+    "yourGrade": "Your final grade is",
+    "onScale": "on scale",
+    "internalScore": "Internal score (0-100)",
+    "close": "Close",
+    "saveNow": "Save this grade"
+  },
+  "countries": {
+    "MX": { "name": "Grades in Mexico", "desc": "Percentage grading (0-100%)" },
+    "ES": { "name": "Grades in Spain", "desc": "Calculate: bachillerato, ESO, university" },
+    "AR": { "name": "Grades in Argentina", "desc": "UBA average, CBC, direct promotion and high school" },
+    "CO": { "name": "Grades in Colombia", "desc": "PAPA, weighted average (0-5)" },
+    "PE": { "name": "Grades in Peru", "desc": "UPAO, San Marcos – vigesimal scale" },
+    "CL": { "name": "Grades in Chile", "desc": "My average, percentage grades and NEM" },
+    "VE": { "name": "Grades in Venezuela", "desc": "UCV, LUZ, OPSU (0-20), USB (1-5)" },
+    "EC": { "name": "Grades in Ecuador", "desc": "ESPOL, UCE, National Registry (0-10)" },
+    "CR": { "name": "Grades in Costa Rica", "desc": "UCR, TEC – exam grade (0-10, 0-100)" },
+    "GT": { "name": "Grades in Guatemala", "desc": "USAC, Landívar – Term and final exam (0-100)" }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "author": "MateoRiosdev",
+    "": "Built with Next.js and professional i18n"
+  }
+}

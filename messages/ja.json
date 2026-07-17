@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "title": "世界の成績平均計算機",
+    "description": "世界中のどの国でも成績平均を計算できます。"
+  },
+  "header": {
+    "appName": "世界の成績",
+    "tagline": "グローバル成績計算機"
+  },
+  "theme": {
+    "toggleLight": "ライトモード",
+    "toggleDark": "ダークモード"
+  },
+  "language": {
+    "selectorLabel": "言語を選択",
+    "changeLanguage": "言語を変更",
+    "comingSoon": "近日公開"
+  },
+  "hero": {
+    "title": "世界中で成績を計算",
+    "subtitle": "国を検索し大陸を選択して成績スケールに合わせて評価を調整してください。"
+  },
+  "countrySelector": {
+    "title": "国を選択",
+    "searchPlaceholder": "国を検索...",
+    "continentAll": "すべての大陸",
+    "continents": {
+      "Africa": "アフリカ",
+      "Americas": "アメリカ",
+      "Asia": "アジア",
+      "Europe": "ヨーロッパ",
+      "Oceania": "オセアニア"
+    },
+    "loading": "国を読み込み中...",
+    "error": "国リストを読み込めませんでした。再試行してください。",
+    "scaleLabel": "スケール",
+    "selected": "選択した国"
+  },
+  "calculator": {
+    "modeCustom": "現在の平均",
+    "modeEnglish": "英語レベル平均",
+    "evaluationsHeader": "評価",
+    "percentageHeader": "パーセント",
+    "gradeHeader": "成績",
+    "addEvaluation": "評価を追加",
+    "removeEvaluation": "削除",
+    "totalPercentage": "合計パーセント",
+    "percentageWarning": "合計は100%になる必要があります。",
+    "calculateButton": "最終成績を計算",
+    "saveButton": "成績を保存",
+    "newCalcButton": "新しい計算",
+    "savedBadge": "保存済み",
+    "countryGradeTitle": "平均成績",
+    "noCountrySelected": "国が選択されていません",
+    "englishEvaluations": {
+      "pa1": "Proficiency achievement 1",
+      "pa2": "Proficiency achievement 2",
+      "pa3": "Proficiency achievement 3",
+      "pa4": "Proficiency achievement 4",
+      "pa5": "Proficiency achievement 5",
+      "pa6": "Proficiency achievement 6",
+      "final": "Final Evaluation"
+    }
+  },
+  "resultModal": {
+    "title": "最終成績",
+    "yourGrade": "あなたの最終成績は",
+    "onScale": "スケール",
+    "internalScore": "内部スコア (0-100)",
+    "close": "閉じる",
+    "saveNow": "この成績を保存"
+  },
+  "savedGrades": {
+    "title": "保存された成績",
+    "empty": "保存された成績はありません。",
+    "load": "読み込む",
+    "delete": "削除",
+    "clearAll": "すべて削除",
+    "mode_custom": "現在の平均",
+    "mode_english": "英語レベル",
+    "noCountry": "国なし"
+  },
+  "countries": {
+    "MX": {
+      "name": "メキシコ",
+      "desc": ""
+    },
+    "ES": {
+      "name": "スペイン",
+      "desc": ""
+    },
+    "AR": {
+      "name": "アルゼンチン",
+      "desc": ""
+    },
+    "CO": {
+      "name": "コロンビア",
+      "desc": ""
+    },
+    "PE": {
+      "name": "ペルー",
+      "desc": ""
+    },
+    "CL": {
+      "name": "チリ",
+      "desc": ""
+    },
+    "VE": {
+      "name": "ベネズエラ",
+      "desc": ""
+    },
+    "EC": {
+      "name": "エクアドル",
+      "desc": ""
+    },
+    "CR": {
+      "name": "コスタリカ",
+      "desc": ""
+    },
+    "GT": {
+      "name": "グアテマラ",
+      "desc": ""
+    }
+  },
+  "footer": {
+    "rights": "全著作権所有。",
+    "author": "MateoRiosdev"
+  }
+}
