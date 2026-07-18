@@ -1,33 +1,19 @@
-// Dentro de generateMetadata, agrega icons:
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'metadata' });
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Fondo circular azul -->
+  <circle cx="32" cy="32" r="32" fill="#2563eb"/>
 
-  const languages = Object.fromEntries(
-    locales.map((l) => [l, `https://www.notamundial.com/${l}`])
-  );
+  <!-- Globo terráqueo -->
+  <circle cx="26" cy="34" r="16" fill="none" stroke="#93c5fd" stroke-width="2"/>
+  <ellipse cx="26" cy="34" rx="7" ry="16" fill="none" stroke="#93c5fd" stroke-width="1.5"/>
+  <line x1="10" y1="34" x2="42" y2="34" stroke="#93c5fd" stroke-width="1.5"/>
+  <path d="M12 27 Q26 24 40 27" fill="none" stroke="#93c5fd" stroke-width="1.2"/>
+  <path d="M12 41 Q26 44 40 41" fill="none" stroke="#93c5fd" stroke-width="1.2"/>
 
-  return {
-    title: t('title'),
-    description: t('description'),
-    // *** AGREGA ESTO ***
-    icons: {
-      icon: '/favicon.svg',
-      shortcut: '/favicon.svg',
-      apple: '/favicon.svg',
-    },
-    // *** FIN ***
-    metadataBase: new URL('https://www.notamundial.com'),
-    alternates: {
-      canonical: `https://www.notamundial.com/${locale}`,
-      languages: { ...languages, 'x-default': 'https://www.notamundial.com/es' }
-    },
-    openGraph: {
-      title: t('title'),
-      description: t('description'),
-      locale,
-      url: `https://www.notamundial.com/${locale}`,
-      type: 'website'
-    }
-  };
-}
+  <!-- Medalla dorada -->
+  <circle cx="48" cy="18" r="10" fill="#f59e0b"/>
+  <text x="48" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="white" font-family="Arial, sans-serif">★</text>
+
+  <!-- Cinta de la medalla -->
+  <line x1="45" y1="27" x2="43" y2="34" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="51" y1="27" x2="53" y2="34" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

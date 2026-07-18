@@ -21,24 +21,39 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
   const languages = Object.fromEntries(
-    locales.map((l) => [l, `https://www.notamundial.com/${l}`])
+    locales.map((l) => [l, `https://nota-mundial.vercel.app/${l}`])
   );
 
   return {
     title: t('title'),
     description: t('description'),
-    metadataBase: new URL('https://www.notamundial.com'),
-    alternates: {
-      canonical: `https://www.notamundial.com/${locale}`,
-      languages: { ...languages, 'x-default': 'https://www.notamundial.com/es' }
+
+    // ═══ Favicons ═══
+    icons: {
+      icon: [
+        { url: '/favicon.svg', type: 'image/svg+xml' },
+        { url: '/favicon.ico', sizes: 'any' },
+      ],
+      shortcut: '/favicon.svg',
+      apple: '/favicon.svg',
     },
+
+    // ═══ Open Graph ═══
     openGraph: {
       title: t('title'),
       description: t('description'),
+      url: `https://nota-mundial.vercel.app/${locale}`,
+      siteName: 'Nota Mundial',
       locale,
-      url: `https://www.notamundial.com/${locale}`,
-      type: 'website'
-    }
+      type: 'website',
+    },
+
+    // ═══ SEO ═══
+    metadataBase: new URL('https://nota-mundial.vercel.app'),
+    alternates: {
+      canonical: `/${locale}`,
+      languages: { ...languages, 'x-default': '/es' },
+    },
   };
 }
 
@@ -55,9 +70,7 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  // Habilita renderizado estático para este locale (App Router + next-intl).
   setRequestLocale(locale);
-
   const messages = await getMessages();
 
   return (
@@ -65,7 +78,10 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />
-          <main className="mx-auto max-w-4xl px-4 py-8">{children}</main>
+          {/* max-w-7xl para consistencia con Header */}
+          <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+            {children}
+          </main>
           <Footer />
         </NextIntlClientProvider>
       </body>
