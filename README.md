@@ -1,64 +1,229 @@
-# Nota Mundial (ex "Calculadora de Notas a nivel Global")
+# Nota Mundial ("Calculadora de Notas a nivel Global")
 
-Calculadora de promedio de calificaciones global, internacionalización profesional (`next-intl`), búsqueda
-de países vía `restcountries.com` y guardado local de calificaciones.
+**Global Grade** is a modern GPA and grade conversion calculator designed for students worldwide. It allows users to calculate weighted averages and convert grades between the official grading systems of more than **60 countries**, including Peru, Spain, Colombia, Chile, Argentina, Mexico, and many others.
 
-## Instalación
+Built with **Next.js 16**, it offers multilingual support, responsive design, country-specific grading scales, and a clean user experience optimized for both desktop and mobile devices.
+
+🌐 **Live Demo:** https://nota-mundial.vercel.app
+
+---
+
+## Features
+
+- 🌍 Supports **60+ official national grading systems**
+- 🔄 Convert grades between different country scales
+- 📊 Calculate weighted grade averages
+- 🎓 **English Level Mode** (Proficiency Achievements 1–6 + Final), ideal for English institutes such as ISIL
+- 🔎 Searchable country selector
+- 🌎 Filter countries by continent
+- 📄 Pagination for large country lists
+- 🚩 Real SVG country flags using **flag-icons**
+- 💾 Save grades locally with Local Storage
+- 🗑️ Edit and delete saved grades
+- 🌙 Dark and Light themes
+- 📱 Fully responsive interface
+- 🌐 Internationalization with **9 languages**
+- ⚡ Fast, server-rendered application built with Next.js App Router
+- 🔍 SEO optimized with localized metadata, sitemap, robots.txt, and hreflang support
+
+---
+
+## Supported Grading Systems
+
+| Country | Scale |
+|----------|-------|
+| Peru | 0–20 |
+| Spain | 0–10 |
+| Colombia | 0–5 |
+| Chile | 1.0–7.0 |
+| Argentina | 0–10 |
+| Mexico | 0–100 |
+| Venezuela | 0–20 |
+| Ecuador | 0–10 |
+| France | 0–20 |
+| Germany | 1–6 |
+| Italy | 1–10 |
+| Japan | 0–100 |
+| ...and 50+ more | Official national scales |
+
+---
+
+## Supported Languages
+
+- English
+- Spanish
+- Portuguese
+- French
+- German
+- Italian
+- Japanese
+- Korean
+- Chinese (Simplified)
+
+---
+
+## Technology Stack
+
+| Technology | Purpose |
+|------------|---------|
+| Next.js 16 | React Framework (App Router) |
+| React | User Interface |
+| TypeScript | Type Safety |
+| Tailwind CSS | Styling |
+| next-intl | Internationalization |
+| Framer Motion | UI Animations |
+| flag-icons | SVG Country Flags |
+| lucide-react | Icons |
+| REST Countries API | Country Information (with fallback support) |
+
+---
+
+## Project Structure
+
+```text
+global-grade/
+├── app/
+│   ├── api/
+│   │   └── countries/
+│   │       └── route.ts
+│   ├── [locale]/
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   └── globals.css
+│
+├── components/
+│   ├── AnimatedModal.tsx
+│   ├── CountrySelector.tsx
+│   ├── FlagIcon.tsx
+│   ├── GradeCalculator.tsx
+│   ├── LanguageSelector.tsx
+│   ├── SavedGradesPanel.tsx
+│   └── Skeleton.tsx
+│
+├── i18n/
+│   ├── request.ts
+│   └── routing.ts
+│
+├── lib/
+│   ├── gradingSystems.ts
+│   └── useSavedGrades.ts
+│
+├── messages/
+│   ├── de.json
+│   ├── en.json
+│   ├── es.json
+│   ├── fr.json
+│   ├── it.json
+│   ├── ja.json
+│   ├── ko.json
+│   ├── pt.json
+│   └── zh.json
+│
+└── public/
+    ├── favicon.svg
+    ├── robots.txt
+    └── sitemap.xml
+```
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/global-grade.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd global-grade
+```
+
+Install dependencies:
 
 ```bash
 npm install
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-Abre `http://localhost:3000` — el middleware te redirige automáticamente a
-`/es` o `/en` según tu cookie guardada o el header `Accept-Language` de tu
-navegador.
+Open your browser at:
 
-## Qué incluye
+```
+http://localhost:3000
+```
 
-- **i18n con next-intl**: rutas localizadas `/es` y `/en`, detección por
-  `Accept-Language`, selector manual, cookie `NEXT_LOCALE` con prioridad sobre
-  la detección automática, mensajes 100% en JSON (`messages/es.json`,
-  `messages/en.json`), carga perezosa de traducciones, `generateStaticParams`
-  + Server Components para SEO y rendimiento.
-- **Selector de idioma**: bandera del idioma activo + icono de planeta que
-  abre un listado accesible (ARIA) con `es`/`en` activos y `pt/fr/de/it/ja/ko/zh`
-  ya listados como "próximamente" — agregar un idioma nuevo solo requiere
-  crear su `messages/<locale>.json` y sumarlo a `i18n/routing.ts`.
-- **SEO**: `public/robots.txt`, `public/sitemap.xml` (con hreflang `es`/`en`),
-  metadatos dinámicos y `alternates.languages` por locale en
-  `app/[locale]/layout.tsx`.
-- **Calculadora**: modo "Promedio Actual" (evaluaciones editables, agregar/quitar
-  filas, porcentaje libre).
-  Todo se calcula internamente en escala 0-100 y se convierte a la escala del
-  país seleccionado (`lib/gradingSystems.ts`, ya incluye MX, ES, AR, CO, PE,
-  CL, VE, EC, CR, GT — agregar un país nuevo es una entrada más en ese archivo).
-- **Países**: `CountrySelector` consume `https://restcountries.com/v3.1`
-  con buscador + filtro de continente, mostrando un skeleton (`components/Skeleton.tsx`,
-  inspirado en el patrón de `0xGF/boneyard`) mientras carga.
-- **Guardado de calificaciones**: `lib/useSavedGrades.ts` persiste en
-  `localStorage`, sobrevive a refrescos de página y muestra el contador
-  (`Guardadas (1)`, `(2)`, ...).
-- **Modal animado**: `components/AnimatedModal.tsx` con `framer-motion`
-  (entrada y salida animadas al presionar "Calcular Calificación Final").
-- **Footer**: crédito enlazado a
-  `https://www.linkedin.com/in/mateojuliogomerorios/`.
+---
 
-## Notas honestas sobre el alcance
+## Build for Production
 
-Este es un proyecto de gran alcance (i18n completo + SEO + API externa +
-persistencia + animaciones). `npm install` y `npm run build` ya se
-ejecutaron y compilaron con éxito en el entorno de desarrollo (Next.js
-14.2.35, generando `/es` y `/en` estáticos), así que puedes clonarlo y
-correr `npm run dev` directamente.
+```bash
+npm run build
+npm start
+```
 
-La librería `boneyard` (https://github.com/0xGF/boneyard) no está publicada
-en npm, así que se replicó su patrón de "skeleton por bloques con shimmer"
-como componente propio (`components/Skeleton.tsx`) en vez de instalarla
-directo desde GitHub.
+---
 
-Los 10 países pedidos (México, España, Argentina, Colombia, Perú, Chile,
-Venezuela, Ecuador, Costa Rica, Guatemala) tienen su conversión de escala
-lista; el resto de los ~250 países de `restcountries.com` se pueden
-seleccionar igual y usan una escala genérica 0-100 hasta que les agregues su
-conversión específica en `lib/gradingSystems.ts`.
+## SEO
+
+Global Grade includes built-in SEO features:
+
+- Localized metadata
+- hreflang tags
+- robots.txt
+- sitemap.xml
+- Locale-aware routing
+- Server-side rendering with Next.js
+
+---
+
+## Internationalization
+
+The application is powered by **next-intl** and currently supports nine languages:
+
+- 🇺🇸 English
+- 🇪🇸 Spanish
+- 🇵🇹 Portuguese
+- 🇫🇷 French
+- 🇩🇪 German
+- 🇮🇹 Italian
+- 🇯🇵 Japanese
+- 🇰🇷 Korean
+- 🇨🇳 Chinese
+
+Adding a new language only requires creating a new translation file inside the `messages` directory.
+
+---
+
+## Grade Persistence
+
+Grades are stored locally using the browser's Local Storage.
+
+Users can:
+
+- Save multiple grade calculations
+- Reload previous grades
+- Delete saved entries
+- Continue using the application without creating an account
+
+No personal data is sent to any external server.
+
+---
+
+## License
+
+This project is released under the **MIT License**.
+
+Feel free to fork, modify, and contribute.
+
+---
+
+## Author
+
+Developed with ❤️ using **Next.js** and **TypeScript**.
