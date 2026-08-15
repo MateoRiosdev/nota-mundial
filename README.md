@@ -6,6 +6,8 @@ Built with **Next.js 16**, it offers multilingual support, responsive design, co
 
 🌐 **Live Demo:** https://nota-mundial.vercel.app
 
+☁️ **Cloudfare:** https://nota-mundial.mateoriosdev.workers.dev/en
+
 ---
 
 ## Features
@@ -13,7 +15,6 @@ Built with **Next.js 16**, it offers multilingual support, responsive design, co
 - 🌍 Supports **60+ official national grading systems**
 - 🔄 Convert grades between different country scales
 - 📊 Calculate weighted grade averages
-- 🎓 **English Level Mode** (Proficiency Achievements 1–6 + Final), ideal for English institutes such as ISIL
 - 🔎 Searchable country selector
 - 🌎 Filter countries by continent
 - 📄 Pagination for large country lists
