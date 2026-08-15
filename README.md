@@ -6,7 +6,7 @@ Built with **Next.js 16**, it offers multilingual support, responsive design, co
 
 🌐 **Live Demo:** https://nota-mundial.vercel.app
 
-☁️ **Cloudfare:** https://nota-mundial.mateoriosdev.workers.dev/en
+☁️ **Cloudflare:** https://nota-mundial.mateoriosdev.workers.dev/en
 
 ---
 
