@@ -21,6 +21,11 @@
     "subtitle": "Recherchez votre pays, choisissez le continent et adaptez les evaluations."
   },
   "countrySelector": {
+    "clearSearch": "Effacer la recherche",
+    "retry": "Réessayer",
+    "noResults": "Aucun pays trouvé.",
+    "pagination": "{start}–{end} sur {total}",
+    "genericScale": "Échelle générique en pourcentage ; vérifiez celle de votre établissement.",
     "title": "Selectionnez votre pays",
     "searchPlaceholder": "Rechercher un pays...",
     "continentAll": "Tous les continents",

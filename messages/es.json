@@ -21,6 +21,11 @@
     "subtitle": "Busca tu país, elige el continente y adapta las evaluaciones y porcentajes a tu escala de calificación (0-100 internamente, convertido a tu escala local)."
   },
   "countrySelector": {
+    "clearSearch": "Limpiar búsqueda",
+    "retry": "Reintentar",
+    "noResults": "No se encontraron países.",
+    "pagination": "{start}–{end} de {total}",
+    "genericScale": "Escala porcentual genérica; verifica la escala de tu institución.",
     "title": "Selecciona tu país",
     "searchPlaceholder": "Buscar país...",
     "continentAll": "Todos los continentes",

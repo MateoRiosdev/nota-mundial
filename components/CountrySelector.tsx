@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { Search, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { Skeleton } from './Skeleton';
 import { FlagIcon } from './FlagIcon';
+import { getCountryName } from '@/lib/countries';
 import { getGradingSystem, supportedCountryOrder } from '@/lib/gradingSystems';
 
 type RestCountry = {
@@ -18,24 +19,8 @@ type RestCountry = {
 const CONTINENTS = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'] as const;
 const PAGE_SIZE = 12;
 
-// Mapeo locale → clave de traducción en restcountries
-const LOCALE_TO_TRANSLATION: Record<string, string> = {
-  es: 'spa',
-  pt: 'por',
-  fr: 'fra',
-  de: 'deu',
-  it: 'ita',
-  ja: 'jpn',
-  ko: 'kor',
-  zh: 'zho',
-};
-
 function getLocalName(country: RestCountry, locale: string): string {
-  const key = LOCALE_TO_TRANSLATION[locale];
-  if (key && country.translations?.[key]?.common) {
-    return country.translations[key].common;
-  }
-  return country.name.common;
+  return getCountryName(country.cca2, locale);
 }
 
 export function CountrySelector({
@@ -129,7 +114,7 @@ export function CountrySelector({
           type="button"
           onClick={() => setQuery('')}
           className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
-          aria-label="Limpiar búsqueda"
+          aria-label={t('clearSearch')}
         >
           <X size={16} />
         </button>
@@ -173,7 +158,7 @@ export function CountrySelector({
             onClick={() => setRetryKey((k) => k + 1)}
             className="mt-2 text-xs text-red-500 underline hover:no-underline"
           >
-            Reintentar
+            {t('retry')}
           </button>
         </div>
       )}
@@ -183,7 +168,7 @@ export function CountrySelector({
         <>
           {filtered.length === 0 ? (
             <p className="py-8 text-center text-sm text-slate-400">
-              No se encontraron países.
+              {t('noResults')}
             </p>
           ) : (
             <>
@@ -211,9 +196,9 @@ export function CountrySelector({
                       <span className="flex-1 truncate">{localName}</span>
 
                       {/* Badge de escala en lugar del punto verde */}
-                      {hasScale && (
+                      {(
                         <span className="flex-shrink-0 rounded-full bg-emerald-100 dark:bg-emerald-900/40 px-1.5 py-0.5 text-[9px] font-semibold text-emerald-700 dark:text-emerald-300 leading-tight whitespace-nowrap">
-                          {gs.scaleLabel}
+                          {gs.scaleLabel}{!hasScale ? '*' : ''}
                         </span>
                       )}
                     </button>
@@ -225,7 +210,7 @@ export function CountrySelector({
               {totalPages > 1 && (
                 <div className="mt-4 flex items-center justify-between">
                   <span className="text-xs text-slate-400">
-                    {page * PAGE_SIZE + 1}–{Math.min((page + 1) * PAGE_SIZE, filtered.length)} de {filtered.length}
+                    {t('pagination', { start: page * PAGE_SIZE + 1, end: Math.min((page + 1) * PAGE_SIZE, filtered.length), total: filtered.length })}
                   </span>
 
                   <div className="flex items-center gap-1">
@@ -270,7 +255,7 @@ export function CountrySelector({
           )}
 
           {/* Info país seleccionado */}
-          {selected && supportedSet.has(selected) && (
+          {selected && (
             <div className="mt-4 flex items-center gap-3 rounded-lg bg-slate-50 dark:bg-slate-700/40 p-3">
               <FlagIcon code={selected} size="lg" />
               <div>
@@ -291,6 +276,7 @@ export function CountrySelector({
                   {t('scaleLabel')}:{' '}
                   <strong className="text-slate-700 dark:text-slate-200">
                     {getGradingSystem(selected).scaleLabel}
+                    {!supportedSet.has(selected) && ` (${t('genericScale')})`}
                   </strong>
                 </p>
               </div>

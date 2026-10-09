@@ -33,6 +33,7 @@ export function LanguageSelector() {
 
   function switchLocale(next: string) {
     persistLocaleCookie(next);
+    document.cookie = `USER_LOCALE=${next};path=/;max-age=${60 * 60 * 24 * 365};samesite=lax`;
     // @ts-expect-error -- pathname/params tipados dinámicamente por next-intl
     router.replace({ pathname, params }, { locale: next });
     setOpen(false);

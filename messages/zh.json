@@ -21,6 +21,11 @@
     "subtitle": "搜索您的国家，选择洲际，并根据您的评分标准调整评估。"
   },
   "countrySelector": {
+    "clearSearch": "清除搜索",
+    "retry": "重试",
+    "noResults": "未找到国家。",
+    "pagination": "共 {total} 项，第 {start}–{end} 项",
+    "genericScale": "通用百分比评分范围；请核对学校的评分标准。",
     "title": "选择您的国家",
     "searchPlaceholder": "搜索国家...",
     "continentAll": "所有大洲",

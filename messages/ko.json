@@ -21,6 +21,11 @@
     "subtitle": "국가를 검색하고 대륙을 선택하여 성적 척도에 맞게 평가를 조정하세요."
   },
   "countrySelector": {
+    "clearSearch": "검색 지우기",
+    "retry": "다시 시도",
+    "noResults": "국가를 찾을 수 없습니다.",
+    "pagination": "총 {total}개 중 {start}–{end}",
+    "genericScale": "일반 백분율 척도입니다. 학교의 평가 척도를 확인하세요.",
     "title": "국가 선택",
     "searchPlaceholder": "국가 검색...",
     "continentAll": "모든 대륙",

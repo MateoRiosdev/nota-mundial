@@ -21,6 +21,11 @@
     "subtitle": "Suchen Sie Ihr Land, waehlen Sie den Kontinent und passen Sie die Bewertungen an."
   },
   "countrySelector": {
+    "clearSearch": "Suche löschen",
+    "retry": "Erneut versuchen",
+    "noResults": "Keine Länder gefunden.",
+    "pagination": "{start}–{end} von {total}",
+    "genericScale": "Allgemeine Prozentskala; prüfen Sie die Skala Ihrer Einrichtung.",
     "title": "Land auswaehlen",
     "searchPlaceholder": "Land suchen...",
     "continentAll": "Alle Kontinente",

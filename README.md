@@ -228,3 +228,29 @@ Feel free to fork, modify, and contribute.
 ## Author
 
 Developed with ❤️ using **Next.js** and **TypeScript**.
+
+## Automatic country and language
+
+The entry URL `/` selects a language using the visitor IP country supplied by
+Vercel (`x-vercel-ip-country`) or Cloudflare (`cf-ipcountry`). Spanish-speaking
+Latin America uses Spanish; Brazil, Portugal, Cape Verde and other Portuguese-speaking
+countries use Portuguese. Countries without a mapped supported language use English.
+Without geolocation, English is used and the country remains unselected.
+Explicit locale URLs such as `/es` keep that language. A manual language choice
+is saved in `USER_LOCALE`; a manual country choice is saved locally in the browser.
+These choices take precedence over subsequent automatic detection.
+The hosting proxy must supply trustworthy country headers; a local machine cannot
+infer a visitor's country from the server's own IP.
+
+The selector uses the bundled ISO catalog from `flag-icons` (249 countries and
+territories) and `Intl.DisplayNames` for all nine languages. It does not require
+REST Countries availability. Configured numeric grading scales represent common
+scales and can differ between institutions or educational levels. Countries without
+a configured scale explicitly show a generic percentage scale, marked with `*`.
+
+Run regression tests from the repository directory:
+
+```bash
+node --test tests/location-and-countries.test.cjs
+npm run build
+```

@@ -21,6 +21,11 @@
     "subtitle": "Cerca il tuo paese, scegli il continente e adatta le valutazioni alla tua scala."
   },
   "countrySelector": {
+    "clearSearch": "Cancella ricerca",
+    "retry": "Riprova",
+    "noResults": "Nessun paese trovato.",
+    "pagination": "{start}–{end} di {total}",
+    "genericScale": "Scala percentuale generica; verifica la scala del tuo istituto.",
     "title": "Seleziona il tuo paese",
     "searchPlaceholder": "Cerca paese...",
     "continentAll": "Tutti i continenti",

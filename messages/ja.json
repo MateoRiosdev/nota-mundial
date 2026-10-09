@@ -21,6 +21,11 @@
     "subtitle": "国を検索し大陸を選択して成績スケールに合わせて評価を調整してください。"
   },
   "countrySelector": {
+    "clearSearch": "検索をクリア",
+    "retry": "再試行",
+    "noResults": "国が見つかりません。",
+    "pagination": "{total}件中{start}–{end}件",
+    "genericScale": "一般的な百分率の尺度です。学校の評価尺度を確認してください。",
     "title": "国を選択",
     "searchPlaceholder": "国を検索...",
     "continentAll": "すべての大陸",

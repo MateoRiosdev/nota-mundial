@@ -21,6 +21,11 @@
     "subtitle": "Search your country, pick a continent and adapt evaluations and percentages to your grading scale (internally 0-100, converted to your local scale)."
   },
   "countrySelector": {
+    "clearSearch": "Clear search",
+    "retry": "Retry",
+    "noResults": "No countries found.",
+    "pagination": "{start}–{end} of {total}",
+    "genericScale": "Generic percentage scale; check your institution’s scale.",
     "title": "Select your country",
     "searchPlaceholder": "Search country...",
     "continentAll": "All continents",
