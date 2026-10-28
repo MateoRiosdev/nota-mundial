@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Global Grades - Calculate Your Grades on a Global Scale",
-    "description": "Calculate your grade average for any country in the world: weighted average in Spain, weighted GPA in Latin America and more."
+    "title": "Nota Mundial | Grade calculator and academic planner",
+    "description": "Calculate weighted grades and organize courses, assignments and exams in your academic calendar. Save your grades and export dates to Google Calendar or ICS."
   },
   "header": {
     "appName": "World Grade",
@@ -43,7 +43,7 @@
   },
   "calculator": {
     "countryGradeTitle": "Average Grade in",
-"noCountrySelected": "No country selected",
+    "noCountrySelected": "No country selected",
     "modeCustom": "Current Average",
     "modeEnglish": "English Level Average",
     "evaluationsHeader": "Evaluations",
@@ -67,7 +67,7 @@
       "final": "Final Evaluation"
     }
   },
-    "savedGrades": {
+  "savedGrades": {
     "title": "Calificaciones Guardadas",
     "empty": "Aún no hay calificaciones guardadas.",
     "load": "Cargar",
@@ -86,16 +86,46 @@
     "saveNow": "Save this grade"
   },
   "countries": {
-    "MX": { "name": "Grades in Mexico", "desc": "Percentage grading (0-100%)" },
-    "ES": { "name": "Grades in Spain", "desc": "Calculate: bachillerato, ESO, university" },
-    "AR": { "name": "Grades in Argentina", "desc": "UBA average, CBC, direct promotion and high school" },
-    "CO": { "name": "Grades in Colombia", "desc": "PAPA, weighted average (0-5)" },
-    "PE": { "name": "Grades in Peru", "desc": "UPAO, San Marcos – vigesimal scale" },
-    "CL": { "name": "Grades in Chile", "desc": "My average, percentage grades and NEM" },
-    "VE": { "name": "Grades in Venezuela", "desc": "UCV, LUZ, OPSU (0-20), USB (1-5)" },
-    "EC": { "name": "Grades in Ecuador", "desc": "ESPOL, UCE, National Registry (0-10)" },
-    "CR": { "name": "Grades in Costa Rica", "desc": "UCR, TEC – exam grade (0-10, 0-100)" },
-    "GT": { "name": "Grades in Guatemala", "desc": "USAC, Landívar – Term and final exam (0-100)" }
+    "MX": {
+      "name": "Grades in Mexico",
+      "desc": "Percentage grading (0-100%)"
+    },
+    "ES": {
+      "name": "Grades in Spain",
+      "desc": "Calculate: bachillerato, ESO, university"
+    },
+    "AR": {
+      "name": "Grades in Argentina",
+      "desc": "UBA average, CBC, direct promotion and high school"
+    },
+    "CO": {
+      "name": "Grades in Colombia",
+      "desc": "PAPA, weighted average (0-5)"
+    },
+    "PE": {
+      "name": "Grades in Peru",
+      "desc": "UPAO, San Marcos – vigesimal scale"
+    },
+    "CL": {
+      "name": "Grades in Chile",
+      "desc": "My average, percentage grades and NEM"
+    },
+    "VE": {
+      "name": "Grades in Venezuela",
+      "desc": "UCV, LUZ, OPSU (0-20), USB (1-5)"
+    },
+    "EC": {
+      "name": "Grades in Ecuador",
+      "desc": "ESPOL, UCE, National Registry (0-10)"
+    },
+    "CR": {
+      "name": "Grades in Costa Rica",
+      "desc": "UCR, TEC – exam grade (0-10, 0-100)"
+    },
+    "GT": {
+      "name": "Grades in Guatemala",
+      "desc": "USAC, Landívar – Term and final exam (0-100)"
+    }
   },
   "footer": {
     "rights": "All rights reserved.",

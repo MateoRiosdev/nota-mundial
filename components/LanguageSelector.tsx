@@ -32,6 +32,7 @@ export function LanguageSelector() {
   const currentMeta = localeMeta[locale] ?? localeMeta.en;
 
   function switchLocale(next: string) {
+    if (!window.dispatchEvent(new Event('nota-mundial:before-navigation', {cancelable: true}))) return;
     persistLocaleCookie(next);
     document.cookie = `USER_LOCALE=${next};path=/;max-age=${60 * 60 * 24 * 365};samesite=lax`;
     // @ts-expect-error -- pathname/params tipados dinámicamente por next-intl

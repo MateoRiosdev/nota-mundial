@@ -59,3 +59,55 @@
   0%   { opacity: 0; transform: scale(0.92) translateY(12px); }
   100% { opacity: 1; transform: scale(1)    translateY(0);    }
 }
+@layer components {
+  .surface { @apply rounded-2xl border border-slate-200/80 bg-white shadow-[0_2px_3px_-2px_rgba(15,23,42,0.10)] dark:border-slate-700/80 dark:bg-slate-800; }
+  .button-primary { @apply inline-flex items-center justify-center gap-2 rounded-xl bg-[#2563EB] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-40; }
+  .button-secondary { @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:border-blue-300 hover:text-blue-600 disabled:cursor-not-allowed disabled:opacity-40 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-blue-500 dark:hover:text-blue-400; }
+  .button-danger { @apply inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-rose-600 hover:bg-rose-50 disabled:cursor-not-allowed disabled:opacity-40 dark:text-rose-400 dark:hover:bg-rose-950; }
+  .icon-button { @apply inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-500 transition-colors hover:border-blue-300 hover:text-blue-600 disabled:cursor-not-allowed disabled:opacity-35 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-400 dark:hover:text-blue-400; }
+  .field { @apply mt-1 block w-full min-w-0 rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-normal text-slate-900 outline-none transition-shadow placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/15 disabled:opacity-60 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100; }
+  .field-label { @apply block text-sm font-semibold text-slate-600 dark:text-slate-300; }
+  .field-label svg { @apply mr-2 inline; }
+  .view-tabs { @apply grid grid-cols-3 sm:flex max-w-full gap-1 rounded-2xl bg-slate-100 p-1.5 dark:bg-slate-950/40; }
+  .view-tab { @apply flex min-w-0 flex-1 items-center justify-center gap-1 sm:gap-2 rounded-xl px-1.5 sm:px-3 py-3 text-xs font-semibold text-slate-500 transition-colors hover:text-blue-600 sm:flex-none sm:px-5 sm:text-sm dark:text-slate-400; }
+  .view-tab.selected { @apply bg-white text-blue-600 shadow-sm dark:bg-slate-700 dark:text-blue-300; }
+  .course-chip { @apply rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-500 transition-colors dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300; }
+  .course-chip.active { @apply border-blue-600 bg-blue-600 text-white; }
+  .course-chip-group { @apply flex max-w-full items-center overflow-hidden rounded-xl border border-slate-200 bg-white text-xs font-medium text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300; }
+  .course-chip-group.active { @apply border-blue-400 bg-blue-50 text-blue-700 dark:border-blue-500 dark:bg-blue-950/50 dark:text-blue-300; }
+  .planner-warning { @apply flex items-start gap-2 rounded-xl border border-amber-200/80 bg-amber-50/70 px-4 py-3 text-xs leading-relaxed text-amber-800 dark:border-amber-800/50 dark:bg-amber-950/30 dark:text-amber-300; }
+  .planner-warning svg { @apply mt-0.5 shrink-0; }
+  .stat-icon { @apply flex h-11 w-11 items-center justify-center rounded-xl; }
+  .stat-blue { @apply bg-blue-50 text-blue-600 dark:bg-blue-950/60 dark:text-blue-400; }
+  .stat-amber { @apply bg-amber-50 text-amber-600 dark:bg-amber-950/50 dark:text-amber-400; }
+  .stat-emerald { @apply bg-emerald-50 text-emerald-600 dark:bg-emerald-950/50 dark:text-emerald-400; }
+  .empty-planner { @apply border-dashed bg-gradient-to-b from-white to-blue-50/30 px-6 py-10 text-center dark:from-slate-800 dark:to-slate-800; }
+  .empty-orbit { @apply relative mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 ring-8 ring-blue-50/50 dark:bg-blue-950/70 dark:text-blue-400 dark:ring-blue-950/30; }
+  .empty-orbit span { @apply absolute -bottom-1 -right-1 rounded-full border-[3px] border-white bg-blue-600 p-1 text-white dark:border-slate-800; }
+  .calendar-day { @apply flex items-start border-r border-slate-100 p-1 text-xs sm:p-2 sm:text-sm font-medium text-slate-600 transition-colors last:border-r-0 hover:bg-blue-50/50 dark:border-slate-700/60 dark:text-slate-300 dark:hover:bg-blue-950/20; }
+  .calendar-day > span { @apply flex h-7 w-7 items-center justify-center rounded-full; }
+  .calendar-day.calendar-outside { @apply bg-slate-50/70 text-slate-300 dark:bg-slate-900/30 dark:text-slate-600; }
+  .calendar-today { @apply bg-blue-50/30 dark:bg-blue-950/20; }
+  .today-number { @apply bg-blue-600 text-white; }
+  .calendar-event { @apply mx-0.5 flex h-[30px] items-center overflow-hidden rounded-md border-l-[3px] px-1 text-left text-[10px] sm:px-2 sm:text-[11px] font-semibold text-slate-700 transition-shadow hover:ring-2 hover:ring-blue-400 dark:text-slate-100; }
+  .calendar-event > span:last-child { @apply truncate; }
+  .schedule-card { @apply flex flex-wrap items-start gap-4 p-5 sm:p-6; }
+  .schedule-card > div:last-child { @apply ml-9 lg:ml-0; }
+  .completed-card { @apply border-emerald-200/80 dark:border-emerald-800/70; }
+  .planner-dialog { @apply m-auto max-h-[90dvh] w-[calc(100%-2rem)] max-w-2xl overflow-y-auto overscroll-contain rounded-2xl border border-slate-200 bg-white p-0 text-slate-900 shadow-2xl dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100; }
+  .planner-dialog::backdrop { background: rgb(15 23 42 / 55%); backdrop-filter: blur(4px); }
+  .color-swatch { @apply flex h-9 w-9 items-center justify-center rounded-full text-white transition-transform hover:scale-110; }
+  .color-swatch[aria-pressed=true] { @apply ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-slate-800; }
+  .planner-progress { @apply block h-1.5 w-full overflow-hidden rounded-full border-0 bg-slate-100 dark:bg-slate-700; }
+  .planner-progress::-webkit-progress-bar { @apply rounded-full bg-slate-100 dark:bg-slate-700; }
+  .planner-progress::-webkit-progress-value { @apply rounded-full bg-blue-600; }
+  .planner-progress::-moz-progress-bar { @apply rounded-full bg-blue-600; }
+}
+@layer base {
+  button:focus-visible, a:focus-visible, summary:focus-visible, select:focus-visible { outline: 2px solid #2563eb; outline-offset: 3px; }
+  input[type=number] { min-width: 0; }
+  html.dark { color-scheme: dark; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

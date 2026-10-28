@@ -254,3 +254,75 @@ Run regression tests from the repository directory:
 node --test tests/location-and-countries.test.cjs
 npm run build
 ```
+
+## Academic workspace
+
+The home page now includes **Calendar**, **Schedule**, and **Grade Calculator**
+views. Create pages for separate semesters or projects, then add your own courses,
+colors, grading ranges, assignments and exams. Assessments share their dates,
+completion state, percentage and grade across all three views. Selecting **Grade**
+in the schedule opens and focuses that assessment in its course calculator.
+
+- Dates are optional. The calendar displays continuous assessment ranges across
+  days and weeks, supports Monday/Sunday starts and adapts to mobile screens.
+- Percentages must total 100% for a final grade. Missing grades are distinct from
+  zero; partial calculations are explicitly labeled as accumulated points.
+- **Autosave is off by default.** Enable it or use **Save**. Data is stored only in
+  the current browser, using `nota-mundial:planner:v1`. It does not sync across
+  devices, domains or browser profiles. Clearing browser data removes it. Existing
+  quick-calculator saved grades use their original, separate storage key.
+- Unsaved edits trigger an exit warning. Storage failures and edits in another tab
+  are shown explicitly; conflicting tabs pause autosave.
+- Google Calendar opens a prefilled event for the student to confirm. It requires
+  no application API key or OAuth integration and does not synchronize later edits.
+  Individual or filtered assessments can also be downloaded as `.ics` files.
+- Date inputs use the device's local timezone. Google Calendar and ICS exports use
+  UTC to preserve the actual event times, including daylight-saving offsets.
+- The existing country calculator remains under **Quick calculator by country**.
+  The new workspace has complete Spanish and English copy; other locale routes
+  currently use English for this workspace while retaining their localized country
+  calculator and navigation.
+
+### Search engine metadata
+
+`app/sitemap.ts` generates the root URL and all nine locale URLs with language
+alternates. `app/robots.ts`, canonical links, Open Graph, Twitter and WebApplication
+structured data share `lib/site.ts`. The default canonical origin is
+`https://nota-mundial.vercel.app`. To use a custom production domain, set
+`NEXT_PUBLIC_SITE_URL` to its HTTPS origin **before building**. Do not use a preview
+URL as the canonical site. Metadata supports discovery but does not guarantee
+indexing or a particular ranking.
+
+### Validation
+
+```bash
+npm test
+npm run build
+```
+
+`npm test` runs the original country/location regressions and the planner's grade,
+storage-validation, calendar-range and ICS/Google Calendar tests.
+
+Browser regression tests require an active development server and Chromium:
+
+```bash
+# Terminal 1
+npm run dev -- --hostname 127.0.0.1 --port 3000
+
+# Terminal 2: install Playwright's browser once, or use a system Chromium below.
+npx playwright install chromium
+npm run test:browser
+
+# In the managed cloud environment, reuse its installed Chromium:
+CHROMIUM_EXECUTABLE=/usr/bin/chromium npm run test:browser
+```
+
+The browser suite uses an isolated browser context and verifies opt-in storage,
+manual save and autosave, reloads, separate pages, course colors, date edits,
+weighted calculations, exports, mobile layout, dark mode and storage errors.
+`PLANNER_TEST_URL` overrides the local server origin. `PLANNER_ARTIFACTS` sets the
+screenshot directory (defaults to the OS temporary directory).
+
+Known existing tooling limitation: `npm run lint` uses `next lint`, which is no
+longer available in Next.js 16. The test and build commands above are the supported
+validation paths for this change.
