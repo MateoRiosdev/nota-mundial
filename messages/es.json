@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Nota Mundial - Calcula tus notas a nivel mundial",
-    "description": "Calcula tu promedio de notas para cualquier país del mundo: media ponderada en España, promedio ponderado en Latinoamérica y más."
+    "title": "Nota Mundial | Calculadora de notas y calendario académico",
+    "description": "Calcula tu promedio ponderado, organiza cursos, tareas y exámenes en tu calendario académico. Guarda tus notas y exporta fechas a Google Calendar o ICS."
   },
   "header": {
     "appName": "Nota Mundial",
@@ -43,7 +43,7 @@
   },
   "calculator": {
     "countryGradeTitle": "Nota Promedio en",
-"noCountrySelected": "Sin país seleccionado",
+    "noCountrySelected": "Sin país seleccionado",
     "modeCustom": "Promedio Actual",
     "modeEnglish": "Promedio ENGLISH LEVEL",
     "evaluationsHeader": "Evaluaciones",
@@ -75,7 +75,7 @@
     "close": "Cerrar",
     "saveNow": "Guardar esta calificación"
   },
-    "savedGrades": {
+  "savedGrades": {
     "title": "Calificaciones Guardadas",
     "empty": "Aún no hay calificaciones guardadas.",
     "load": "Cargar",
@@ -86,16 +86,46 @@
     "noCountry": "Sin país"
   },
   "countries": {
-    "MX": { "name": "Notas en México", "desc": "Calificaciones en porcentaje (0-100%)" },
-    "ES": { "name": "Notas en España", "desc": "Calcula tu nota: bachillerato, ESO, universidad" },
-    "AR": { "name": "Notas en Argentina", "desc": "Promedio UBA, CBC, promoción directa y secundaria" },
-    "CO": { "name": "Notas en Colombia", "desc": "PAPA, promedio ponderado (0-5)" },
-    "PE": { "name": "Notas en Perú", "desc": "UPAO, San Marcos – escala vigesimal" },
-    "CL": { "name": "Notas en Chile", "desc": "Mi promedio, notas con porcentaje y NEM" },
-    "VE": { "name": "Notas en Venezuela", "desc": "UCV, LUZ, OPSU (0-20), USB (1-5)" },
-    "EC": { "name": "Notas en Ecuador", "desc": "ESPOL, UCE, Registro Nacional (0-10)" },
-    "CR": { "name": "Notas en Costa Rica", "desc": "UCR, TEC – nota de examen (0-10, 0-100)" },
-    "GT": { "name": "Notas en Guatemala", "desc": "USAC, Landívar – Zona y examen final (0-100)" }
+    "MX": {
+      "name": "Notas en México",
+      "desc": "Calificaciones en porcentaje (0-100%)"
+    },
+    "ES": {
+      "name": "Notas en España",
+      "desc": "Calcula tu nota: bachillerato, ESO, universidad"
+    },
+    "AR": {
+      "name": "Notas en Argentina",
+      "desc": "Promedio UBA, CBC, promoción directa y secundaria"
+    },
+    "CO": {
+      "name": "Notas en Colombia",
+      "desc": "PAPA, promedio ponderado (0-5)"
+    },
+    "PE": {
+      "name": "Notas en Perú",
+      "desc": "UPAO, San Marcos – escala vigesimal"
+    },
+    "CL": {
+      "name": "Notas en Chile",
+      "desc": "Mi promedio, notas con porcentaje y NEM"
+    },
+    "VE": {
+      "name": "Notas en Venezuela",
+      "desc": "UCV, LUZ, OPSU (0-20), USB (1-5)"
+    },
+    "EC": {
+      "name": "Notas en Ecuador",
+      "desc": "ESPOL, UCE, Registro Nacional (0-10)"
+    },
+    "CR": {
+      "name": "Notas en Costa Rica",
+      "desc": "UCR, TEC – nota de examen (0-10, 0-100)"
+    },
+    "GT": {
+      "name": "Notas en Guatemala",
+      "desc": "USAC, Landívar – Zona y examen final (0-100)"
+    }
   },
   "footer": {
     "rights": "Todos los derechos reservados.",

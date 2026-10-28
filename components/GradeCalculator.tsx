@@ -326,7 +326,7 @@ export function GradeCalculator({
           <button
             type="button"
             onClick={addRow}
-            className="mt-3 inline-flex items-center gap-1 text-sm text-brand-600 hover:underline"
+            className="button-primary mt-3"
           >
             <Plus size={14} /> {t('calculator.addEvaluation')}
           </button>
@@ -334,7 +334,7 @@ export function GradeCalculator({
 
         {/* Total porcentaje */}
         <div className="mt-4 flex items-center justify-between text-sm">
-          <span className="text-slate-500 dark:text-slate-400">{t('calculator.totalPercentage')}</span>
+          <strong className="text-slate-600 dark:text-slate-300">{t('calculator.totalPercentage')}</strong>
           <span className={totalPercentage === 100 ? 'font-semibold text-emerald-600' : 'font-semibold text-amber-500'}>
             {totalPercentage}%
           </span>
