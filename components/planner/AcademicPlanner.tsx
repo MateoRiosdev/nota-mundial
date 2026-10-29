@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import {
   CalendarDays,
@@ -21,6 +21,10 @@ import {
   Pencil,
   Trash2,
 } from "lucide-react";
+import { QuickCalculator } from "@/components/QuickCalculator";
+import { useCountrySelection } from "@/lib/useCountrySelection";
+import { CustomSelect } from "./CustomSelect";
+import { ConfirmDialog } from "./ConfirmDialog";
 import { usePlanner } from "@/lib/usePlanner";
 import {
   AcademicPage,
@@ -48,11 +52,7 @@ type Dialog =
   | { kind: "page"; editing: boolean }
   | null;
 type View = "calendar" | "schedule" | "calculator";
-export function AcademicPlanner({
-  quickCalculator,
-}: {
-  quickCalculator: ReactNode;
-}) {
+export function AcademicPlanner() {
   const t = useTranslations("planner"),
     locale = useLocale();
   const {
@@ -65,6 +65,15 @@ export function AcademicPlanner({
     save,
     error,
   } = usePlanner(t("defaultPage"), t("leaveWarning"));
+  const { countryCode, selectCountry } = useCountrySelection();
+  const [confirmation, setConfirmation] = useState<{
+    title: string;
+    message: string;
+    action: () => void;
+  } | null>(null);
+  function confirmAction(title: string, message: string, action: () => void) {
+    setConfirmation({ title, message, action });
+  }
   const [pageId, setPageId] = useState("first-page"),
     [filter, setFilter] = useState("all"),
     [view, setView] = useState<View>("calendar");
@@ -176,7 +185,7 @@ export function AcademicPlanner({
     <div className="academic-planner space-y-6">
       <section className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
         <div>
-          <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-blue-600 dark:text-blue-400">
+          <div className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-blue-600 dark:text-blue-400">
             <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
             {t("eyebrow")}
           </div>
@@ -201,18 +210,14 @@ export function AcademicPlanner({
       <div className="surface flex flex-col justify-between gap-4 p-4 sm:flex-row sm:items-center sm:px-5">
         <div className="flex min-w-0 items-center gap-2">
           <Layers size={19} className="shrink-0 text-blue-600" />
-          <select
-            aria-label={t("pages")}
-            className="min-w-0 max-w-64 rounded-lg bg-transparent py-2 pr-2 text-sm font-semibold outline-offset-4"
+          <CustomSelect
+            label={t("pages")}
             value={page.id}
-            onChange={(e) => changePage(e.target.value)}
-          >
-            {data.pages.map((p) => (
-              <option key={p.id} value={p.id}>
-                {p.name}
-              </option>
-            ))}
-          </select>
+            options={data.pages.map((p) => ({ value: p.id, label: p.name }))}
+            onChange={changePage}
+            disabled={!hydrated}
+            className="min-w-0 max-w-64"
+          />
           <button
             type="button"
             className="icon-button shrink-0"
@@ -279,6 +284,14 @@ export function AcademicPlanner({
           </div>
         )
       )}
+      <details className="surface p-4 sm:p-6" open>
+        <summary className="cursor-pointer font-bold text-blue-600 dark:text-blue-400">
+          {t("quickCalculator")}
+        </summary>
+        <div className="mt-5">
+          <QuickCalculator countryCode={countryCode} onSelect={selectCountry} />
+        </div>
+      </details>
       <div className="grid grid-cols-3 gap-3 sm:gap-5">
         {[
           {
@@ -701,23 +714,18 @@ export function AcademicPlanner({
                   }}
                   focusId={focusId}
                   onClear={() => {
-                    if (window.confirm(t("confirmClear")))
+                    confirmAction(t("clearGrades"), t("confirmClear"), () =>
                       updateCourse(selectedCourse.id, (c) => ({
                         ...c,
                         evaluations: c.evaluations.map((e) => ({
                           ...e,
                           grade: null,
                         })),
-                      }));
+                      })),
+                    );
                   }}
                 />
               )}
-              <details className="surface p-5" open={!selectedCourse}>
-                <summary className="cursor-pointer text-sm font-semibold text-blue-600 dark:text-blue-400">
-                  {t("quickCalculator")}
-                </summary>
-                <div className="mt-6">{quickCalculator}</div>
-              </details>
             </div>
           )}
           {!!courses.length && (
@@ -734,6 +742,7 @@ export function AcademicPlanner({
       {dialog?.kind === "course" && (
         <CourseForm
           course={dialog.course}
+          countryCode={countryCode}
           onClose={() => setDialog(null)}
           onSave={(course) => {
             updatePage((p) => ({
@@ -748,16 +757,20 @@ export function AcademicPlanner({
           onDelete={
             dialog.course
               ? () => {
-                  if (window.confirm(t("confirmDeleteCourse"))) {
-                    updatePage((p) => ({
-                      ...p,
-                      courses: p.courses.filter(
-                        (c) => c.id !== dialog.course!.id,
-                      ),
-                    }));
-                    setFilter("all");
-                    setDialog(null);
-                  }
+                  confirmAction(
+                    t("deleteCourse"),
+                    t("confirmDeleteCourse"),
+                    () => {
+                      updatePage((p) => ({
+                        ...p,
+                        courses: p.courses.filter(
+                          (c) => c.id !== dialog.course!.id,
+                        ),
+                      }));
+                      setFilter("all");
+                      setDialog(null);
+                    },
+                  );
                 }
               : undefined
           }
@@ -784,15 +797,19 @@ export function AcademicPlanner({
           onDelete={
             dialog.evaluation
               ? () => {
-                  if (window.confirm(t("confirmDeleteEvaluation"))) {
-                    updateCourse(dialog.courseId, (c) => ({
-                      ...c,
-                      evaluations: c.evaluations.filter(
-                        (e) => e.id !== dialog.evaluation!.id,
-                      ),
-                    }));
-                    setDialog(null);
-                  }
+                  confirmAction(
+                    t("deleteEvaluation"),
+                    t("confirmDeleteEvaluation"),
+                    () => {
+                      updateCourse(dialog.courseId, (c) => ({
+                        ...c,
+                        evaluations: c.evaluations.filter(
+                          (e) => e.id !== dialog.evaluation!.id,
+                        ),
+                      }));
+                      setDialog(null);
+                    },
+                  );
                 }
               : undefined
           }
@@ -845,14 +862,18 @@ export function AcademicPlanner({
                   type="button"
                   disabled={data.pages.length === 1}
                   onClick={() => {
-                    if (window.confirm(t("confirmDeletePage"))) {
-                      const remaining = data.pages.filter(
-                        (p) => p.id !== page.id,
-                      );
-                      setData((prev) => ({ ...prev, pages: remaining }));
-                      changePage(remaining[0].id);
-                      setDialog(null);
-                    }
+                    confirmAction(
+                      t("deletePage"),
+                      t("confirmDeletePage"),
+                      () => {
+                        const remaining = data.pages.filter(
+                          (p) => p.id !== page.id,
+                        );
+                        setData((prev) => ({ ...prev, pages: remaining }));
+                        changePage(remaining[0].id);
+                        setDialog(null);
+                      },
+                    );
                   }}
                 >
                   <Trash2 size={15} />
@@ -866,6 +887,17 @@ export function AcademicPlanner({
             </div>
           </form>
         </PlannerDialog>
+      )}
+      {confirmation && (
+        <ConfirmDialog
+          title={confirmation.title}
+          message={confirmation.message}
+          onCancel={() => setConfirmation(null)}
+          onConfirm={() => {
+            confirmation.action();
+            setConfirmation(null);
+          }}
+        />
       )}
     </div>
   );

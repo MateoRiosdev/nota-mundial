@@ -103,5 +103,17 @@
   "localPrivacy": "Your data is saved only in this browser.",
   "loading": "Loading your workspace…",
   "delete": "Delete",
-  "close": "Close"
+  "close": "Close",
+  "chooseDate": "Choose date and time",
+  "month": "Month",
+  "year": "Year",
+  "hour": "Hour",
+  "minute": "Minutes",
+  "done": "Done",
+  "hue": "Hue",
+  "saturation": "Saturation",
+  "brightness": "Brightness",
+  "cancel": "Cancel",
+  "confirmDelete": "Confirm",
+  "deleteEvaluation": "Delete assessment"
 }

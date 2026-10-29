@@ -10,20 +10,27 @@ import {
   localInput,
   validRange,
 } from "@/lib/planner";
+import { getGradingSystem } from "@/lib/gradingSystems";
+import { CustomSelect } from "./CustomSelect";
+import { DateTimePicker } from "./DateTimePicker";
+import { ColorPicker } from "./ColorPicker";
 import { PlannerDialog } from "./PlannerDialog";
 
 export function CourseForm({
   course,
+  countryCode,
   onSave,
   onClose,
   onDelete,
 }: {
   course?: Course;
+  countryCode: string | null;
   onSave: (course: Course) => void;
   onClose: () => void;
   onDelete?: () => void;
 }) {
   const t = useTranslations("planner");
+  const scale = getGradingSystem(countryCode ?? "XX");
   const [color, setColor] = useState(course?.color ?? COURSE_COLORS[0]);
   const [error, setError] = useState("");
   function submit(e: FormEvent<HTMLFormElement>) {
@@ -49,7 +56,18 @@ export function CourseForm({
       color,
       min,
       max,
-      evaluations: course?.evaluations ?? [],
+      evaluations:
+        course?.evaluations ??
+        [1, 2].map((n) => ({
+          id: newId(),
+          title: `${t("evaluationName")} ${n}`,
+          kind: "task" as const,
+          weight: 50,
+          grade: null,
+          start: "",
+          end: "",
+          completed: false,
+        })),
     });
   }
   return (
@@ -99,16 +117,7 @@ export function CourseForm({
                 {color.toUpperCase() === c && <Check size={18} />}
               </button>
             ))}
-            <label className="flex items-center gap-2 text-sm">
-              {t("customColor")}
-              <input
-                type="color"
-                value={color}
-                onChange={(e) => setColor(e.target.value)}
-                aria-label={t("customColor")}
-                className="h-9 w-10 cursor-pointer rounded border-0 bg-transparent"
-              />
-            </label>
+            <ColorPicker value={color} onChange={setColor} />
           </div>
         </fieldset>
         <fieldset>
@@ -122,7 +131,7 @@ export function CourseForm({
                 type="number"
                 step="any"
                 required
-                defaultValue={course?.min ?? 0}
+                defaultValue={course?.min ?? scale.min}
               />
             </label>
             <label className="field-label">
@@ -133,7 +142,7 @@ export function CourseForm({
                 type="number"
                 step="any"
                 required
-                defaultValue={course?.max ?? 20}
+                defaultValue={course?.max ?? scale.max}
               />
             </label>
           </div>
@@ -182,6 +191,7 @@ export function EvaluationForm({
 }) {
   const t = useTranslations("planner");
   const [selected, setSelected] = useState(courseId);
+  const [kind, setKind] = useState(evaluation?.kind ?? "task");
   const [start, setStart] = useState(
     evaluation?.start
       ? localInput(evaluation.start)
@@ -229,19 +239,13 @@ export function EvaluationForm({
       <form onSubmit={submit} className="space-y-5">
         <label className="field-label">
           {t("course")}
-          <select
-            aria-label={t("course")}
-            className="field"
+          <CustomSelect
+            label={t("course")}
             value={selected}
             disabled={!!evaluation}
-            onChange={(e) => setSelected(e.target.value)}
-          >
-            {courses.map((c) => (
-              <option key={c.id} value={c.id}>
-                {c.name}
-              </option>
-            ))}
-          </select>
+            options={courses.map((c) => ({ value: c.id, label: c.name }))}
+            onChange={setSelected}
+          />
         </label>
         <label className="field-label">
           {t("evaluationName")}
@@ -258,14 +262,16 @@ export function EvaluationForm({
         <div className="grid grid-cols-2 gap-4">
           <label className="field-label">
             {t("type")}
-            <select
-              className="field"
+            <CustomSelect
+              label={t("type")}
               name="kind"
-              defaultValue={evaluation?.kind ?? "task"}
-            >
-              <option value="task">{t("task")}</option>
-              <option value="exam">{t("exam")}</option>
-            </select>
+              value={kind}
+              options={[
+                { value: "task", label: t("task") },
+                { value: "exam", label: t("exam") },
+              ]}
+              onChange={(v) => setKind(v as Evaluation["kind"])}
+            />
           </label>
           <label className="field-label">
             {t("weight")} (%)
@@ -300,27 +306,18 @@ export function EvaluationForm({
             {t("scheduleOptional")}
           </legend>
           <div className="grid gap-4 sm:grid-cols-2">
-            <label className="field-label">
-              {t("startDate")}
-              <input
-                className="field"
-                type="datetime-local"
-                value={start}
-                onChange={(e) => setStart(e.target.value)}
-                required={!!end}
-              />
-            </label>
-            <label className="field-label">
-              {t("endDate")}
-              <input
-                className="field"
-                type="datetime-local"
-                value={end}
-                min={start || undefined}
-                onChange={(e) => setEnd(e.target.value)}
-                required={!!start}
-              />
-            </label>
+            <DateTimePicker
+              label={t("startDate")}
+              value={start}
+              onChange={setStart}
+              required={!!end}
+            />
+            <DateTimePicker
+              label={t("endDate")}
+              value={end}
+              onChange={setEnd}
+              required={!!start}
+            />
           </div>
           <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
             {t("localTimezone")}

@@ -103,5 +103,17 @@
   "localPrivacy": "Tus datos se guardan solo en este navegador.",
   "loading": "Cargando tu espacio…",
   "delete": "Eliminar",
-  "close": "Cerrar"
+  "close": "Cerrar",
+  "chooseDate": "Elegir fecha y hora",
+  "month": "Mes",
+  "year": "Año",
+  "hour": "Hora",
+  "minute": "Minutos",
+  "done": "Listo",
+  "hue": "Tono",
+  "saturation": "Saturación",
+  "brightness": "Brillo",
+  "cancel": "Cancelar",
+  "confirmDelete": "Confirmar",
+  "deleteEvaluation": "Eliminar evaluación"
 }

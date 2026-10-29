@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Search, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { CustomSelect } from './planner/CustomSelect';
 import { Skeleton } from './Skeleton';
 import { FlagIcon } from './FlagIcon';
 import { getCountryName } from '@/lib/countries';
@@ -122,22 +123,8 @@ export function CountrySelector({
     </div>
 
         {/* Select de continente — ancho fijo para que la flecha no se vaya lejos */}
-        <select
-          value={continent}
-          onChange={(e) => setContinent(e.target.value)}
-          className="w-full sm:w-44 rounded-lg border border-slate-300 dark:border-slate-600
-                     bg-white dark:bg-slate-800 px-3 py-2 text-sm
-                     outline-none focus:ring-2 focus:ring-brand-500
-                     appearance-none
-                     bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%236b7280%22%20d%3D%22M6%208L1%203h10z%22%2F%3E%3C%2Fsvg%3E')]
-                     bg-no-repeat bg-[right_0.75rem_center]
-                     pr-8"
-        >
-          <option value="all">{t('continentAll')}</option>
-          {CONTINENTS.map((c) => (
-            <option key={c} value={c}>{t(`continents.${c}`)}</option>
-          ))}
-        </select>
+        <CustomSelect label={t('continentAll')} value={continent} onChange={setContinent} options={[{value:'all',label:t('continentAll')},...CONTINENTS.map(c=>({value:c,label:t(`continents.${c}`)}))]} className="w-full sm:w-52"/>
+
       </div>
 
       {/* ── Loading ── */}

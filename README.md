@@ -278,7 +278,7 @@ in the schedule opens and focuses that assessment in its course calculator.
   Individual or filtered assessments can also be downloaded as `.ics` files.
 - Date inputs use the device's local timezone. Google Calendar and ICS exports use
   UTC to preserve the actual event times, including daylight-saving offsets.
-- The existing country calculator remains under **Quick calculator by country**.
+- The country calculator appears first, above the course summary, under **Quick calculator by country**. Its selected country supplies the grading range for new courses. New courses start with two ungraded assessments weighted at 50% each. Changing country does not alter existing courses.
   The new workspace has complete Spanish and English copy; other locale routes
   currently use English for this workspace while retaining their localized country
   calculator and navigation.
@@ -320,6 +320,8 @@ CHROMIUM_EXECUTABLE=/usr/bin/chromium npm run test:browser
 The browser suite uses an isolated browser context and verifies opt-in storage,
 manual save and autosave, reloads, separate pages, course colors, date edits,
 weighted calculations, exports, mobile layout, dark mode and storage errors.
+The controls suite also verifies country defaults, custom page/week selectors, the
+color picker, date/time picker, keyboard behavior and custom deletion dialogs.
 `PLANNER_TEST_URL` overrides the local server origin. `PLANNER_ARTIFACTS` sets the
 screenshot directory (defaults to the OS temporary directory).
 

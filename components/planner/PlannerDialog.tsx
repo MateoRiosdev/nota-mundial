@@ -16,12 +16,17 @@ export function PlannerDialog({
   useEffect(() => {
     const dialog = ref.current!;
     const previousFocus = document.activeElement as HTMLElement | null;
-    const previousOverflow = document.body.style.overflow;
+    if (!document.querySelector("dialog[open]"))
+      document.body.dataset.modalOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     dialog.showModal();
     return () => {
       dialog.close();
-      document.body.style.overflow = previousOverflow;
+      if (!document.querySelector("dialog[open]")) {
+        document.body.style.overflow =
+          document.body.dataset.modalOverflow ?? "";
+        delete document.body.dataset.modalOverflow;
+      }
       if (previousFocus?.isConnected) previousFocus.focus();
     };
   }, []);
