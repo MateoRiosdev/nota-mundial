@@ -31,6 +31,8 @@ const artifacts =
     await page
       .getByRole("button", { name: "Crear mi primer curso", exact: true })
       .waitFor();
+    await page.getByPlaceholder("Buscar país...").fill("Perú");
+    await page.getByRole("button", { name: "Perú 0-20", exact: true }).click();
     async function course(name, code, color) {
       await page
         .getByRole("button", { name: "Nuevo curso", exact: true })
@@ -45,6 +47,10 @@ const artifacts =
           await page.evaluate(() => !!document.activeElement.closest("dialog")),
         );
       }
+      assert.equal(
+        await d.getByLabel("Máximo", { exact: true }).inputValue(),
+        "20",
+      );
       await d.getByLabel("Nombre del curso", { exact: true }).fill(name);
       await d.getByLabel("Código del curso (opcional)").fill(code);
       await d
@@ -52,6 +58,38 @@ const artifacts =
         .click();
       await d.getByRole("button", { name: "Guardar cambios" }).click();
       await d.waitFor({ state: "hidden" });
+      await page
+        .getByRole("button", { name: `${code} · ${name}`, exact: true })
+        .click();
+      await page
+        .getByRole("button", { name: "Cronograma", exact: true })
+        .click();
+      assert.equal(await page.locator("article").count(), 2);
+      assert.equal(
+        await page.locator("article").getByText("50%", { exact: true }).count(),
+        2,
+      );
+      for (const n of [1, 2]) {
+        await page
+          .getByRole("button", {
+            name: `Modificar fechas y evaluación: Evaluación ${n}`,
+            exact: true,
+          })
+          .click();
+        await page
+          .getByRole("dialog", { name: "Editar evaluación", exact: true })
+          .getByRole("button", { name: "Eliminar", exact: true })
+          .click();
+        await page
+          .getByRole("dialog", { name: "Eliminar evaluación", exact: true })
+          .getByRole("button", { name: "Confirmar", exact: true })
+          .click();
+        await page.getByRole("dialog").waitFor({ state: "hidden" });
+      }
+      await page.getByRole("button", { name: /^Todos \(/ }).click();
+      await page
+        .getByRole("button", { name: "Calendario", exact: true })
+        .click();
     }
     await course("Matemática aplicada", "MAT-101", "#2563EB");
     await course("Desarrollo de soluciones cloud", "CLOUD-3705", "#7C3AED");
@@ -68,15 +106,18 @@ const artifacts =
         .getByRole("button", { name: "Nueva evaluación", exact: true })
         .click();
       const d = page.getByRole("dialog");
-      await d
-        .getByLabel("Curso", { exact: true })
-        .selectOption({ label: courseName });
+      await d.getByRole("combobox", { name: "Curso", exact: true }).click();
+      await d.getByRole("option", { name: courseName, exact: true }).click();
       await d.getByLabel("Evaluación", { exact: true }).fill(name);
       await d.getByLabel("Porcentaje (%)").fill(String(weight));
       if (grade !== null) await d.getByLabel("Nota (0–20)").fill(String(grade));
       if (start) {
-        await d.getByLabel("Inicio", { exact: true }).fill(start);
-        await d.getByLabel("Entrega", { exact: true }).fill(end);
+        await d
+          .getByLabel("Inicio", { exact: true })
+          .fill(start.replace("T", " "));
+        await d
+          .getByLabel("Entrega", { exact: true })
+          .fill(end.replace("T", " "));
       }
       await d.getByRole("button", { name: "Guardar cambios" }).click();
       await d.waitFor({ state: "hidden" });
@@ -260,8 +301,11 @@ const artifacts =
           .length === 2,
     );
     await page
-      .getByLabel("Mis páginas", { exact: true })
-      .selectOption({ label: "Mi semestre" });
+      .getByRole("combobox", { name: "Mis páginas", exact: true })
+      .click();
+    await page
+      .getByRole("option", { name: "Mi semestre", exact: true })
+      .click();
     assert((await page.getByRole("button", { name: /MAT-101/ }).count()) === 1);
     await page
       .getByRole("button", {
@@ -292,7 +336,7 @@ const artifacts =
     await page
       .getByRole("dialog")
       .getByLabel("Entrega", { exact: true })
-      .fill("2026-11-08T18:00");
+      .fill("2026-11-08 18:00");
     await page
       .getByRole("dialog")
       .getByRole("button", { name: "Guardar cambios" })
@@ -345,13 +389,12 @@ const artifacts =
         .filter({ hasText: "No se pudo guardar" })
         .isVisible(),
     );
-    assert.equal(
-      await page.getByLabel("Mis páginas").inputValue(),
-      await page
-        .getByLabel("Mis páginas")
-        .locator("option")
-        .filter({ hasText: "Sin guardar" })
-        .getAttribute("value"),
+    assert(
+      (
+        await page
+          .getByRole("combobox", { name: "Mis páginas", exact: true })
+          .innerText()
+      ).includes("Sin guardar"),
     );
     assert.deepEqual(errors, []);
     console.log(

@@ -1,4 +1,5 @@
 "use client";
+import { CustomSelect } from "./CustomSelect";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, CalendarDays } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -65,14 +66,15 @@ export function AcademicCalendar({
         </div>
         <label className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
           {t("weekStarts")}
-          <select
-            className="field !w-auto !py-1.5 !text-xs"
+          <CustomSelect
+            label={t("weekStarts")}
             value={String(monday)}
-            onChange={(e) => setMonday(e.target.value === "true")}
-          >
-            <option value="true">{t("monday")}</option>
-            <option value="false">{t("sunday")}</option>
-          </select>
+            options={[
+              { value: "true", label: t("monday") },
+              { value: "false", label: t("sunday") },
+            ]}
+            onChange={(v) => setMonday(v === "true")}
+          />
         </label>
       </div>
       <div className="overflow-x-auto">
