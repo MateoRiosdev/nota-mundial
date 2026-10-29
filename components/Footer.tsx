@@ -4,7 +4,7 @@ export function Footer() {
   const t = useTranslations('footer');
   const year = new Date().getFullYear();
   return (
-    <footer className="mt-10 border-t border-slate-200 dark:border-slate-700 py-6">
+    <footer className="mt-3 border-t border-slate-200 dark:border-slate-700 py-4">
       <div className="mx-auto max-w-4xl px-4 text-center text-xs text-slate-500 dark:text-slate-400">
         <p>
           © {year}{' '}

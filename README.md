@@ -328,3 +328,44 @@ screenshot directory (defaults to the OS temporary directory).
 Known existing tooling limitation: `npm run lint` uses `next lint`, which is no
 longer available in Next.js 16. The test and build commands above are the supported
 validation paths for this change.
+
+## Explore your future: scholarships, careers and news
+
+The collapsed **Explore your future** section follows the calculator's country
+selection (visitor-country header or saved manual choice). It includes searchable
+official scholarship and employment directories, with local resources for Peru,
+Spain, Colombia, Mexico and Chile, plus international resources. These are links
+to official portals, not a list of currently open or guaranteed opportunities.
+No grade eligibility, award amounts or deadlines are inferred. Spanish and English
+copy is provided; other locales use English, as the planner does.
+
+The **News** view requests `/api/news?country=PE` only when opened. To activate
+live articles, obtain a NewsData.io API key and configure `NEWSDATA_API_KEY` in
+the server environment (Vercel environment settings or an ignored `.env.local`
+for development). Restart/redeploy after setting it. Never prefix this credential
+with `NEXT_PUBLIC_`, commit it, or paste it in chat. An optional configuration
+example is in `.env.example`. Allow server-side HTTPS to `newsdata.io` where
+outbound networking is restricted. Cloud development credentials do not configure
+your production deployment automatically.
+
+The adapter uses `https://newsdata.io/api/1/latest` with `country` and education,
+scholarship and employment search terms (`q`), rather than assuming an education
+category exists. Provider country coverage, free-plan quotas, access and delays
+may change; verify the current plan in your NewsData.io dashboard. Article dates
+and sources are supplied by the provider, and articles link to the original
+publisher. Missing keys, provider errors, unsupported countries and exhausted
+quotas show an unavailable state; an empty successful response shows no results.
+The official directory remains usable independently of the API.
+
+Requests are coalesced and cached for one hour per country **per server instance**;
+failures have a five-minute cooldown. This is not a global quota guarantee across
+serverless instances or deployments. For larger traffic, use a shared cache and
+provider-side quota limits. The key and upstream error details are never included
+in API responses. News is not fetched during builds.
+
+Validation includes six service tests (normalization, safe links, missing keys,
+caching, quota errors, recovery and directories) in `npm test`, plus the opportunities
+browser suite in `npm run test:browser`. Browser provider responses are simulated
+for reproducibility; they verify loading, empty, unavailable and populated views,
+country changes, filters and mobile layout. Live NewsData.io access still requires
+a configured key and an end-to-end check against that account.

@@ -34,7 +34,7 @@ export async function generateMetadata({
     description: t("description"),
 
     // ═══ Favicons ═══
-    icons: { icon: "/logo.png", shortcut: "/logo.png", apple: "/logo.png" },
+    icons: { icon: { url: "/favicon.svg", type: "image/svg+xml" }, shortcut: "/favicon.svg", apple: "/logo.png" },
 
     // ═══ Open Graph ═══
     openGraph: {
@@ -101,7 +101,7 @@ export default async function LocaleLayout({
           />
           <Header />
           {/* max-w-7xl para consistencia con Header */}
-          <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+          <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 pb-3">
             {children}
           </main>
           <Footer />

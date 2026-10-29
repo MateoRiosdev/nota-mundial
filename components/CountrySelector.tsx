@@ -92,6 +92,34 @@ export function CountrySelector({
 
   return (
     <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          {/* Info país seleccionado */}
+          {selected && (
+            <div className="mb-4 flex items-center gap-3 rounded-lg bg-slate-50 dark:bg-slate-700/40 p-3">
+              <FlagIcon code={selected} size="lg" />
+              <div>
+                {/* Nombre en idioma local */}
+                <p className="text-sm font-semibold">
+                  {getLocalName(
+                    countries.find((c) => c.cca2 === selected) ?? {
+                      cca2: selected,
+                      name: { common: selected },
+                      region: '',
+                      flags: { svg: '', png: '' },
+                    },
+                    locale
+                  )}
+                </p>
+                {/* Escala del país */}
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  {t('scaleLabel')}:{' '}
+                  <strong className="text-slate-700 dark:text-slate-200">
+                    {getGradingSystem(selected).scaleLabel}
+                    {!supportedSet.has(selected) && ` (${t('genericScale')})`}
+                  </strong>
+                </p>
+              </div>
+            </div>
+          )}
       <h3 className="mb-3 text-lg font-semibold">{t('title')}</h3>
 
       {/* ── Filtros ── */}
@@ -241,34 +269,7 @@ export function CountrySelector({
             </>
           )}
 
-          {/* Info país seleccionado */}
-          {selected && (
-            <div className="mt-4 flex items-center gap-3 rounded-lg bg-slate-50 dark:bg-slate-700/40 p-3">
-              <FlagIcon code={selected} size="lg" />
-              <div>
-                {/* Nombre en idioma local */}
-                <p className="text-sm font-semibold">
-                  {getLocalName(
-                    countries.find((c) => c.cca2 === selected) ?? {
-                      cca2: selected,
-                      name: { common: selected },
-                      region: '',
-                      flags: { svg: '', png: '' },
-                    },
-                    locale
-                  )}
-                </p>
-                {/* Escala del país */}
-                <p className="text-xs text-slate-500 dark:text-slate-400">
-                  {t('scaleLabel')}:{' '}
-                  <strong className="text-slate-700 dark:text-slate-200">
-                    {getGradingSystem(selected).scaleLabel}
-                    {!supportedSet.has(selected) && ` (${t('genericScale')})`}
-                  </strong>
-                </p>
-              </div>
-            </div>
-          )}
+
         </>
       )}
     </div>

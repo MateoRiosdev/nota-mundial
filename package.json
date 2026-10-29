@@ -8,8 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "node tests/location-and-countries.test.cjs && node tests/planner.test.cjs && node tests/color.test.cjs",
-    "test:browser": "node tests/browser/planner.cjs && node tests/browser/controls.cjs"
+    "test": "node tests/location-and-countries.test.cjs && node tests/planner.test.cjs && node tests/color.test.cjs && node tests/news.test.cjs",
+    "test:browser": "node tests/browser/planner.cjs && node tests/browser/controls.cjs && node tests/browser/opportunities.cjs"
   },
   "dependencies": {
     "flag-icons": "^7.5.0",

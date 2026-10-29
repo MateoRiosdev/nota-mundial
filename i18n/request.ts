@@ -15,5 +15,6 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const planner = (
     await import(`../messages/planner/${locale === "es" ? "es" : "en"}.json`)
   ).default;
-  return { locale, messages: { ...messages, planner } };
+  const opportunities = (await import(`../messages/opportunities/${locale === "es" ? "es" : "en"}.json`)).default;
+  return { locale, messages: { ...messages, planner, opportunities } };
 });

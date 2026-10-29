@@ -21,6 +21,7 @@ import {
   Pencil,
   Trash2,
 } from "lucide-react";
+import { Opportunities } from "@/components/Opportunities";
 import { QuickCalculator } from "@/components/QuickCalculator";
 import { useCountrySelection } from "@/lib/useCountrySelection";
 import { CustomSelect } from "./CustomSelect";
@@ -292,6 +293,7 @@ export function AcademicPlanner() {
           <QuickCalculator countryCode={countryCode} onSelect={selectCountry} />
         </div>
       </details>
+      <Opportunities countryCode={countryCode} />
       <div className="grid grid-cols-3 gap-3 sm:gap-5">
         {[
           {
