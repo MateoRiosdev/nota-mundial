@@ -1,10 +1,7 @@
 {
   "title": "Explora tu futuro",
-  "subtitle": "Becas, empleo y noticias para seguir creciendo · {country}",
+  "subtitle": "Becas y empleo para seguir creciendo · {country}",
   "chooseCountry": "Selecciona tu país en la calculadora para explorar oportunidades.",
-  "navigation": "Explorar oportunidades",
-  "resources": "Becas y empleo",
-  "news": "Noticias",
   "search": "Buscar programa o institución…",
   "filter": "Tipo de oportunidad",
   "all": "Todo",
@@ -14,12 +11,5 @@
   "directoryHint": "Un punto de partida para tu próxima meta. Estos portales oficiales publican sus propias convocatorias: consulta requisitos, fechas y disponibilidad antes de postular.",
   "official": "Visitar portal oficial",
   "newTab": "Se abre en una pestaña nueva",
-  "noResources": "No hay portales que coincidan con tu búsqueda. Prueba otro término o filtro.",
-  "newsHint": "Actualidad sobre educación, becas y empleo en {country}. La cobertura puede variar y las noticias pueden llegar con retraso; confirma los detalles en la fuente original.",
-  "loading": "Buscando noticias…",
-  "unavailable": "Las noticias no están disponibles por ahora. Mientras tanto, puedes explorar los portales de becas y empleo.",
-  "retry": "Volver a intentar",
-  "empty": "No encontramos noticias para este país en este momento. Puedes consultar los portales de becas y empleo.",
-  "read": "Leer en la fuente",
-  "poweredBy": "Noticias de"
+  "noResources": "No hay portales que coincidan con tu búsqueda. Prueba otro término o filtro."
 }
